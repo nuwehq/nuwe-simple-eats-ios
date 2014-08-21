@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7B4294D719A68733004B6944 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D619A68733004B6944 /* SystemConfiguration.framework */; };
 		7B4294DA19A687AE004B6944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D919A687AE004B6944 /* MobileCoreServices.framework */; };
-		7B4294DC19A68804004B6944 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294DB19A68804004B6944 /* libc++.dylib */; };
+		7B4294DD19A69099004B6944 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294DB19A68804004B6944 /* libc++.dylib */; };
 		7B61A58119A649A9003F9FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58019A649A9003F9FBE /* Foundation.framework */; };
 		7B61A58319A649A9003F9FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58219A649A9003F9FBE /* CoreGraphics.framework */; };
 		7B61A58519A649A9003F9FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58419A649A9003F9FBE /* UIKit.framework */; };
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B4294DC19A68804004B6944 /* libc++.dylib in Frameworks */,
+				7B4294DD19A69099004B6944 /* libc++.dylib in Frameworks */,
 				7B4294DA19A687AE004B6944 /* MobileCoreServices.framework in Frameworks */,
 				7B4294D719A68733004B6944 /* SystemConfiguration.framework in Frameworks */,
 				7B61A5C919A67DC7003F9FBE /* libNuWe.a in Frameworks */,
@@ -456,10 +456,7 @@
 				GCC_PREFIX_HEADER = "NuWeDevApp/NuWeDevApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp/NuWeDevApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -474,10 +471,7 @@
 				GCC_PREFIX_HEADER = "NuWeDevApp/NuWeDevApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp/NuWeDevApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
