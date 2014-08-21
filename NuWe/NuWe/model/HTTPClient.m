@@ -8,6 +8,7 @@
 
 #import "HTTPClient.h"
 #import "Data.h"
+#import "Common.h"
 
 @implementation HTTPClient
 
@@ -158,8 +159,8 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 {
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-//    NSString* strToken = [NSString stringWithFormat:@"Token %@", gData.meInfo.szTokenApi];
-    NSString* strToken = @"Token 65801fd1-3d94-4599-9d06-475b5ee01e28";
+    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+//    NSString* strToken = @"Token 65801fd1-3d94-4599-9d06-475b5ee01e28";
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     int nCount = (int)[gData.aIngredientSubGroups count];

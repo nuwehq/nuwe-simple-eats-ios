@@ -7,9 +7,11 @@
 //
 
 #import "NWViewController.h"
+#import <NuWe/Nuwe.h>
 
 @interface NWViewController ()
 
+-(IBAction)displayEatNuWe:(id)sender;
 @end
 
 @implementation NWViewController
@@ -24,6 +26,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(IBAction)displayEatNuWe:(id)sender
+{
+//    IngredientListViewController* integratedListController =
+    [IngredientListViewController startServiceWithAuthenticationKey:@"65801fd1-3d94-4599-9d06-475b5ee01e28"];
 }
 
 @end

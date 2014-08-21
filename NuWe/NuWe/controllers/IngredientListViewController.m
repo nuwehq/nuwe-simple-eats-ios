@@ -148,15 +148,6 @@
     
 }
 
-- (void)previewMeal
-{
-//    HTTPClient* httpClient = [HTTPClient sharedClient];
-//    httpClient.delegate = self;
-//    [httpClient previewMeal];
-    
-    NSLog(@"preview Meal");
-}
-
 #pragma mark - UITableView delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -177,44 +168,35 @@
     //imageview.tintColor = gData.colorGreen;
     
     UILabel* label = (UILabel*)[cell viewWithTag:2];
+    UILabel* lblNumber = (UILabel* )[cell viewWithTag:3];
+    
+    int nTopGroupIndex = (int)indexPath.row;
+    IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:nTopGroupIndex];
+    
+    [imageview setImageWithURL:[NSURL URLWithString:topGroup.szIconPathTiny]];
+    label.text = topGroup.szName;
 
-//    if (indexPath.row == 0)
-//    {
-//         imageview.image = [UIImage imageNamed:@"icon_scanner.png"];
-//         label.text = @"Scanner";
-//    }
-//    else
-//    {
-        UILabel* lblNumber = (UILabel* )[cell viewWithTag:3];
-        
-        int nTopGroupIndex = (int)indexPath.row;
-        IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:nTopGroupIndex];
-        
-        [imageview setImageWithURL:[NSURL URLWithString:topGroup.szIconPathTiny]];
-        label.text = topGroup.szName;
-
-        NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex];
-        int nStartIndex = (int)[number integerValue];
-        
-        int nSelectCount = 0;
-        for (int i = 0; i < topGroup.nSubGroupNum; i++)
-        {
-            NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:nStartIndex + i];
-            if (numberAmount.integerValue)
-                nSelectCount++;
-        }
-       
-        if (nSelectCount)
-        {
-            lblNumber.hidden = NO;
-            lblNumber.text = [NSString stringWithFormat:@"%d", nSelectCount];
-        }
-        else
-        {
-            lblNumber.hidden = YES;
-            lblNumber.text = @"";
-        }
-//    }
+    NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex];
+    int nStartIndex = (int)[number integerValue];
+    
+    int nSelectCount = 0;
+    for (int i = 0; i < topGroup.nSubGroupNum; i++)
+    {
+        NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:nStartIndex + i];
+        if (numberAmount.integerValue)
+            nSelectCount++;
+    }
+   
+    if (nSelectCount)
+    {
+        lblNumber.hidden = NO;
+        lblNumber.text = [NSString stringWithFormat:@"%d", nSelectCount];
+    }
+    else
+    {
+        lblNumber.hidden = YES;
+        lblNumber.text = @"";
+    }
     
     return cell;
     
@@ -222,25 +204,14 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([indexPath row] == 0)
-//    {
-//        ScannerViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"scannerController"];
-//        
-//        UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:controller];
-//        navController.navigationBarHidden = YES;
-//        
-//        [self presentViewController:navController animated:YES completion:nil];
-//    }
-//    else
-//    {
-        IngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ingredientSelectController"];
-       
-        int nTopGroupIndex = (int)[indexPath row]; // remove  - 1 as There is no scanner cell
-        controller.nTopGroupIndex = nTopGroupIndex;
-        
-        if ([gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex] != [NSNull null])
-            [self.navigationController pushViewController:controller animated:YES];
-//    }
+
+    IngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ingredientSelectController"];
+   
+    int nTopGroupIndex = (int)[indexPath row]; // remove  - 1 as There is no scanner cell
+    controller.nTopGroupIndex = nTopGroupIndex;
+    
+    if ([gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex] != [NSNull null])
+        [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - helper function
@@ -296,7 +267,24 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nutribu" message:szError delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] ;
     [alertView show];
+}
+
++ (void)startServiceWithAuthenticationKey:(NSString*) authenticationKey
+{
+    if (authenticationKey && ![authenticationKey isEqualToString:@""]) {
+        [[NSUserDefaults standardUserDefaults] setObject:authenticationKey forKey:NWUserSavedAuthenticationToken];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
++ (BOOL)showIngredientsSubmissionView
+{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]) {
+        return NO;
+    }
     
+    
+    return YES;
 }
 
 @end

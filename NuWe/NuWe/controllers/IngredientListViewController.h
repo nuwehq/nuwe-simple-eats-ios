@@ -17,4 +17,7 @@
 - (IBAction)onNext;
 
 
++ (void)startServiceWithAuthenticationKey:(NSString*) authenticationKey;
++ (BOOL)showIngredientsSubmissionView;
+
 @end

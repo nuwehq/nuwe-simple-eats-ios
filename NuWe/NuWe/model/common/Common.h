@@ -13,4 +13,6 @@
 #define IS_IPHONE_5 (IS_IPHONE && IS_WIDESCREEN)
 #define IS_IOS7 ([[UIDevice currentDevice].systemVersion floatValue] >= 7.f)
 
+#define NWUserSavedAuthenticationToken  @"UserInfoSavedAuthenticationToken"
+
 

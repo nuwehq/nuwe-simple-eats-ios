@@ -18,28 +18,15 @@
 
 - (void)loadIngredientGroup;
 - (void)eatIngredients;
-//- (void)saveMeal:(NSString*)szName andImage:(UIImage*)image;
-//- (void)previewMeal;
 
 @end
 
 @protocol HTTPClientDelegate <NSObject>
 
 @optional
-//- (void)didSignupSuccess;
-//- (void)didSignupFailure:(NSString*)szError;
-//- (void)didSigninSuccess:(BOOL)fLoadProfile;
-//- (void)didSigninFailure:(NSString*)szError;
-//- (void)didUpdateProfileSuccess;
-//- (void)didUpdateProfileFailure:(NSString*)szError;
 - (void)didLoadIngredientsSuccess;
 - (void)didLoadIngredientsFailure:(NSString*)szError;
 - (void)didEatIngredientsSuccess;
 - (void)didEatIngredientsFailure:(NSString*)szError;
-//- (void)didSaveMealSuccess;
-//- (void)didSaveMealFailure:(NSString*)szError;
-//- (void)didPreviewMealSuccess;
-//- (void)didPreviewMealFailure:(NSString*)szError;
-
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B4294D719A68733004B6944 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D619A68733004B6944 /* SystemConfiguration.framework */; };
+		7B4294DA19A687AE004B6944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D919A687AE004B6944 /* MobileCoreServices.framework */; };
+		7B4294DC19A68804004B6944 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294DB19A68804004B6944 /* libc++.dylib */; };
 		7B61A58119A649A9003F9FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58019A649A9003F9FBE /* Foundation.framework */; };
 		7B61A58319A649A9003F9FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58219A649A9003F9FBE /* CoreGraphics.framework */; };
 		7B61A58519A649A9003F9FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58419A649A9003F9FBE /* UIKit.framework */; };
@@ -21,6 +24,7 @@
 		7B61A5A219A649A9003F9FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58419A649A9003F9FBE /* UIKit.framework */; };
 		7B61A5AA19A649A9003F9FBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A5A819A649A9003F9FBE /* InfoPlist.strings */; };
 		7B61A5AC19A649A9003F9FBE /* NuWeDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B61A5AB19A649A9003F9FBE /* NuWeDevAppTests.m */; };
+		7B61A5C919A67DC7003F9FBE /* libNuWe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A5C419A67BE6003F9FBE /* libNuWe.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +35,33 @@
 			remoteGlobalIDString = 7B61A57C19A649A9003F9FBE;
 			remoteInfo = NuWeDevApp;
 		};
+		7B61A5C319A67BE6003F9FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B61A37F19A5C472003F9FBE;
+			remoteInfo = NuWe;
+		};
+		7B61A5C519A67BE6003F9FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B61A38F19A5C472003F9FBE;
+			remoteInfo = NuWeTests;
+		};
+		7B61A5C719A67DAC003F9FBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B61A37E19A5C472003F9FBE;
+			remoteInfo = NuWe;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B4294D619A68733004B6944 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B4294D919A687AE004B6944 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7B4294DB19A68804004B6944 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		7B61A57D19A649A9003F9FBE /* NuWeDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuWeDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B61A58019A649A9003F9FBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7B61A58219A649A9003F9FBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +81,7 @@
 		7B61A5A719A649A9003F9FBE /* NuWeDevAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NuWeDevAppTests-Info.plist"; sourceTree = "<group>"; };
 		7B61A5A919A649A9003F9FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B61A5AB19A649A9003F9FBE /* NuWeDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NuWeDevAppTests.m; sourceTree = "<group>"; };
+		7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NuWe.xcodeproj; path = ../../NuWe/NuWe.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B4294DC19A68804004B6944 /* libc++.dylib in Frameworks */,
+				7B4294DA19A687AE004B6944 /* MobileCoreServices.framework in Frameworks */,
+				7B4294D719A68733004B6944 /* SystemConfiguration.framework in Frameworks */,
+				7B61A5C919A67DC7003F9FBE /* libNuWe.a in Frameworks */,
 				7B61A58319A649A9003F9FBE /* CoreGraphics.framework in Frameworks */,
 				7B61A58519A649A9003F9FBE /* UIKit.framework in Frameworks */,
 				7B61A58119A649A9003F9FBE /* Foundation.framework in Frameworks */,
@@ -101,6 +134,9 @@
 		7B61A57F19A649A9003F9FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B4294DB19A68804004B6944 /* libc++.dylib */,
+				7B4294D919A687AE004B6944 /* MobileCoreServices.framework */,
+				7B4294D619A68733004B6944 /* SystemConfiguration.framework */,
 				7B61A58019A649A9003F9FBE /* Foundation.framework */,
 				7B61A58219A649A9003F9FBE /* CoreGraphics.framework */,
 				7B61A58419A649A9003F9FBE /* UIKit.framework */,
@@ -112,6 +148,7 @@
 		7B61A58619A649A9003F9FBE /* NuWeDevApp */ = {
 			isa = PBXGroup;
 			children = (
+				7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */,
 				7B61A58F19A649A9003F9FBE /* NWAppDelegate.h */,
 				7B61A59019A649A9003F9FBE /* NWAppDelegate.m */,
 				7B61A59219A649A9003F9FBE /* Main.storyboard */,
@@ -152,6 +189,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7B61A5BF19A67BE6003F9FBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B61A5C419A67BE6003F9FBE /* libNuWe.a */,
+				7B61A5C619A67BE6003F9FBE /* NuWeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +212,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7B61A5C819A67DAC003F9FBE /* PBXTargetDependency */,
 			);
 			name = NuWeDevApp;
 			productName = NuWeDevApp;
@@ -216,6 +263,12 @@
 			mainGroup = 7B61A57419A649A9003F9FBE;
 			productRefGroup = 7B61A57E19A649A9003F9FBE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7B61A5BF19A67BE6003F9FBE /* Products */;
+					ProjectRef = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7B61A57C19A649A9003F9FBE /* NuWeDevApp */,
@@ -223,6 +276,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7B61A5C419A67BE6003F9FBE /* libNuWe.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNuWe.a;
+			remoteRef = 7B61A5C319A67BE6003F9FBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B61A5C619A67BE6003F9FBE /* NuWeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NuWeTests.xctest;
+			remoteRef = 7B61A5C519A67BE6003F9FBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7B61A57B19A649A9003F9FBE /* Resources */ = {
@@ -271,6 +341,11 @@
 			isa = PBXTargetDependency;
 			target = 7B61A57C19A649A9003F9FBE /* NuWeDevApp */;
 			targetProxy = 7B61A5A319A649A9003F9FBE /* PBXContainerItemProxy */;
+		};
+		7B61A5C819A67DAC003F9FBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NuWe;
+			targetProxy = 7B61A5C719A67DAC003F9FBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -380,6 +455,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NuWeDevApp/NuWeDevApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp/NuWeDevApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,6 +473,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NuWeDevApp/NuWeDevApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp/NuWeDevApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -457,6 +542,7 @@
 				7B61A5B119A649A9003F9FBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B61A5B219A649A9003F9FBE /* Build configuration list for PBXNativeTarget "NuWeDevAppTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +551,7 @@
 				7B61A5B419A649A9003F9FBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
