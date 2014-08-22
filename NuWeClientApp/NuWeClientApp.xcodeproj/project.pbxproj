@@ -21,10 +21,11 @@
 		7B42951519A6982D004B6944 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294F719A6982D004B6944 /* UIKit.framework */; };
 		7B42951D19A6982D004B6944 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B42951B19A6982D004B6944 /* InfoPlist.strings */; };
 		7B42951F19A6982D004B6944 /* NuWeClientAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B42951E19A6982D004B6944 /* NuWeClientAppTests.m */; };
-		7B42952A19A69C2C004B6944 /* NuWe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B42952919A69C2C004B6944 /* NuWe.framework */; };
 		7B42952D19A69EAE004B6944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B42952C19A69EAE004B6944 /* MobileCoreServices.framework */; };
 		7B42952F19A69ED1004B6944 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B42952E19A69ED1004B6944 /* SystemConfiguration.framework */; };
 		7B42953119A69EE1004B6944 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B42953019A69EE1004B6944 /* libc++.dylib */; };
+		7BCBCDCB19A6EC73003CA643 /* NuWe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBCDCA19A6EC73003CA643 /* NuWe.framework */; };
+		7BCBCDCD19A6EC7C003CA643 /* NuWe.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BCBCDCC19A6EC7C003CA643 /* NuWe.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +58,11 @@
 		7B42951A19A6982D004B6944 /* NuWeClientAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NuWeClientAppTests-Info.plist"; sourceTree = "<group>"; };
 		7B42951C19A6982D004B6944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B42951E19A6982D004B6944 /* NuWeClientAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NuWeClientAppTests.m; sourceTree = "<group>"; };
-		7B42952919A69C2C004B6944 /* NuWe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NuWe.framework; sourceTree = "<group>"; };
 		7B42952C19A69EAE004B6944 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7B42952E19A69ED1004B6944 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7B42953019A69EE1004B6944 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		7BCBCDCA19A6EC73003CA643 /* NuWe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NuWe.framework; sourceTree = "<group>"; };
+		7BCBCDCC19A6EC7C003CA643 /* NuWe.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NuWe.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +73,8 @@
 				7B42953119A69EE1004B6944 /* libc++.dylib in Frameworks */,
 				7B42952F19A69ED1004B6944 /* SystemConfiguration.framework in Frameworks */,
 				7B42952D19A69EAE004B6944 /* MobileCoreServices.framework in Frameworks */,
+				7BCBCDCB19A6EC73003CA643 /* NuWe.framework in Frameworks */,
 				7B4294F619A6982D004B6944 /* CoreGraphics.framework in Frameworks */,
-				7B42952A19A69C2C004B6944 /* NuWe.framework in Frameworks */,
 				7B4294F819A6982D004B6944 /* UIKit.framework in Frameworks */,
 				7B4294F419A6982D004B6944 /* Foundation.framework in Frameworks */,
 			);
@@ -114,9 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				7B42953019A69EE1004B6944 /* libc++.dylib */,
+				7BCBCDCA19A6EC73003CA643 /* NuWe.framework */,
 				7B42952E19A69ED1004B6944 /* SystemConfiguration.framework */,
 				7B42952C19A69EAE004B6944 /* MobileCoreServices.framework */,
-				7B42952919A69C2C004B6944 /* NuWe.framework */,
 				7B4294F319A6982D004B6944 /* Foundation.framework */,
 				7B4294F519A6982D004B6944 /* CoreGraphics.framework */,
 				7B4294F719A6982D004B6944 /* UIKit.framework */,
@@ -133,6 +135,7 @@
 				7B42950519A6982D004B6944 /* Main.storyboard */,
 				7B42950819A6982D004B6944 /* NWViewController.h */,
 				7B42950919A6982D004B6944 /* NWViewController.m */,
+				7BCBCDCC19A6EC7C003CA643 /* NuWe.bundle */,
 				7B42950B19A6982D004B6944 /* Images.xcassets */,
 				7B4294FA19A6982D004B6944 /* Supporting Files */,
 			);
@@ -247,6 +250,7 @@
 			files = (
 				7B42950C19A6982D004B6944 /* Images.xcassets in Resources */,
 				7B4294FE19A6982D004B6944 /* InfoPlist.strings in Resources */,
+				7BCBCDCD19A6EC7C003CA643 /* NuWe.bundle in Resources */,
 				7B42950719A6982D004B6944 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +405,7 @@
 				GCC_PREFIX_HEADER = "NuWeClientApp/NuWeClientApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeClientApp/NuWeClientApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,6 +424,7 @@
 				GCC_PREFIX_HEADER = "NuWeClientApp/NuWeClientApp-Prefix.pch";
 				INFOPLIST_FILE = "NuWeClientApp/NuWeClientApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -483,6 +489,7 @@
 				7B42952419A6982D004B6944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B42952519A6982D004B6944 /* Build configuration list for PBXNativeTarget "NuWeClientAppTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +498,7 @@
 				7B42952719A6982D004B6944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

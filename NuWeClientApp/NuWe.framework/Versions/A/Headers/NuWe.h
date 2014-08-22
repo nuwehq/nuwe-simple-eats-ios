@@ -7,4 +7,4 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <NuWe/IngredientListViewController.h>
+#import <NuWe/NuWeManager.h>
