@@ -46,7 +46,7 @@ static UIImage *_image = nil;
 - (UIView *)expandableView
 {
     if (!_image) {
-        _image = [UIImage imageNamed:@"expandableImage.png"];
+        _image = [UIImage imageNamed:@"NuWe.bundle/expandableImage.png"];
     }
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

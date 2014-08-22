@@ -10,6 +10,7 @@
 		7B4294D719A68733004B6944 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D619A68733004B6944 /* SystemConfiguration.framework */; };
 		7B4294DA19A687AE004B6944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294D919A687AE004B6944 /* MobileCoreServices.framework */; };
 		7B4294DD19A69099004B6944 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4294DB19A68804004B6944 /* libc++.dylib */; };
+		7B42954C19A6B5E5004B6944 /* NuWe.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B42954B19A6B5D5004B6944 /* NuWe.bundle */; };
 		7B61A58119A649A9003F9FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58019A649A9003F9FBE /* Foundation.framework */; };
 		7B61A58319A649A9003F9FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58219A649A9003F9FBE /* CoreGraphics.framework */; };
 		7B61A58519A649A9003F9FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A58419A649A9003F9FBE /* UIKit.framework */; };
@@ -28,6 +29,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7B42954519A6B5D5004B6944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B42953519A6B1B8004B6944;
+			remoteInfo = NuWeResources;
+		};
+		7B42954A19A6B5D5004B6944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B61A5BE19A67BE6003F9FBE /* NuWe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B42953619A6B1B8004B6944;
+			remoteInfo = NuWeResources;
+		};
 		7B61A5A319A649A9003F9FBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B61A57519A649A9003F9FBE /* Project object */;
@@ -194,6 +209,7 @@
 			children = (
 				7B61A5C419A67BE6003F9FBE /* libNuWe.a */,
 				7B61A5C619A67BE6003F9FBE /* NuWeTests.xctest */,
+				7B42954B19A6B5D5004B6944 /* NuWe.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +228,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7B42954619A6B5D5004B6944 /* PBXTargetDependency */,
 				7B61A5C819A67DAC003F9FBE /* PBXTargetDependency */,
 			);
 			name = NuWeDevApp;
@@ -278,6 +295,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		7B42954B19A6B5D5004B6944 /* NuWe.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NuWe.bundle;
+			remoteRef = 7B42954A19A6B5D5004B6944 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7B61A5C419A67BE6003F9FBE /* libNuWe.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -301,6 +325,7 @@
 			files = (
 				7B61A59919A649A9003F9FBE /* Images.xcassets in Resources */,
 				7B61A58B19A649A9003F9FBE /* InfoPlist.strings in Resources */,
+				7B42954C19A6B5E5004B6944 /* NuWe.bundle in Resources */,
 				7B61A59419A649A9003F9FBE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +362,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7B42954619A6B5D5004B6944 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NuWeResources;
+			targetProxy = 7B42954519A6B5D5004B6944 /* PBXContainerItemProxy */;
+		};
 		7B61A5A419A649A9003F9FBE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7B61A57C19A649A9003F9FBE /* NuWeDevApp */;

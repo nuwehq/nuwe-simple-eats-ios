@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel* lblTitle;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UIButton* btnBack;
 
 @property (nonatomic, assign) NSInteger nTopGroupIndex;
 

@@ -99,6 +99,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mvr-5F-dKB"/>
                     <connections>
+                        <outlet property="btnDismiss" destination="gle-V0-A2e" id="i1C-GW-Udc"/>
                         <outlet property="btnNext" destination="07r-bx-YdZ" id="dIK-6G-Knu"/>
                         <outlet property="tableView" destination="Bnr-4C-EDA" id="Mv2-Jl-MPf"/>
                     </connections>
@@ -168,6 +169,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="byQ-sF-CkV" id="cI1-fd-LP1"/>
                         <outlet property="lblTitle" destination="qjV-zq-0xW" id="62j-oi-KKk"/>
                         <outlet property="tableView" destination="vYv-pi-yeP" id="HiN-tj-IEx"/>
                     </connections>

@@ -102,8 +102,8 @@
     self.btnP = [[UIButton alloc] initWithFrame:CGRectMake(4, 9, 32, 32)];
     _btnP.tag = 53;
     _btnP.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [_btnP setBackgroundImage:[UIImage imageNamed:@"btn_round_white_pencil_32.png"] forState:UIControlStateNormal];
-    [_btnP setBackgroundImage:[UIImage imageNamed:@"btn_round_green_pencil_32.png"] forState:UIControlStateSelected];
+    [_btnP setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_pencil_32.png"] forState:UIControlStateNormal];
+    [_btnP setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_green_pencil_32.png"] forState:UIControlStateSelected];
     [_btnP addTarget:self action:@selector(onPencil:) forControlEvents:UIControlEventTouchUpInside];
     [_viewRight addSubview:_btnP];
     
@@ -152,8 +152,8 @@
     [btnS setTitle:@"S" forState:UIControlStateNormal];
     [btnS setTitleColor:gData.colorGreen forState:UIControlStateNormal];
     [btnS setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [btnS setBackgroundImage:[UIImage imageNamed:@"btn_round_white_32.png"] forState:UIControlStateNormal];
-    [btnS setBackgroundImage:[UIImage imageNamed:@"btn_round_green_32.png"] forState:UIControlStateSelected];
+    [btnS setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_32.png"] forState:UIControlStateNormal];
+    [btnS setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_green_32.png"] forState:UIControlStateSelected];
     [btnS addTarget:self action:@selector(onSelectLevel:) forControlEvents:UIControlEventTouchUpInside];
     [_viewCenter addSubview:btnS];
 
@@ -165,8 +165,8 @@
     [btnM setTitle:@"M" forState:UIControlStateNormal];
     [btnM setTitleColor:gData.colorGreen forState:UIControlStateNormal];
     [btnM setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [btnM setBackgroundImage:[UIImage imageNamed:@"btn_round_white_32.png"] forState:UIControlStateNormal];
-    [btnM setBackgroundImage:[UIImage imageNamed:@"btn_round_green_32.png"] forState:UIControlStateSelected];
+    [btnM setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_32.png"] forState:UIControlStateNormal];
+    [btnM setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_green_32.png"] forState:UIControlStateSelected];
     [btnM addTarget:self action:@selector(onSelectLevel:) forControlEvents:UIControlEventTouchUpInside];
     [_viewCenter addSubview:btnM];
     
@@ -177,8 +177,8 @@
     [btnL setTitle:@"L" forState:UIControlStateNormal];
     [btnL setTitleColor:gData.colorGreen forState:UIControlStateNormal];
     [btnL setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [btnL setBackgroundImage:[UIImage imageNamed:@"btn_round_white_32.png"] forState:UIControlStateNormal];
-    [btnL setBackgroundImage:[UIImage imageNamed:@"btn_round_green_32.png"] forState:UIControlStateSelected];
+    [btnL setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_32.png"] forState:UIControlStateNormal];
+    [btnL setBackgroundImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_green_32.png"] forState:UIControlStateSelected];
     [btnL addTarget:self action:@selector(onSelectLevel:) forControlEvents:UIControlEventTouchUpInside];
     [_viewCenter addSubview:btnL];
     

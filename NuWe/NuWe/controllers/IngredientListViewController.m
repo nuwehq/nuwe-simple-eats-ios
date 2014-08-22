@@ -47,6 +47,9 @@
 //        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
 //    }
     
+    [self.btnNext setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_next"] forState:UIControlStateNormal];
+    [self.btnDismiss setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_x"] forState:UIControlStateNormal];
+    
     if ([[UIDevice currentDevice].systemVersion floatValue] < 7.f)
     {
         for (UIView* view in self.view.subviews)
@@ -267,24 +270,6 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nutribu" message:szError delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] ;
     [alertView show];
-}
-
-+ (void)startServiceWithAuthenticationKey:(NSString*) authenticationKey
-{
-    if (authenticationKey && ![authenticationKey isEqualToString:@""]) {
-        [[NSUserDefaults standardUserDefaults] setObject:authenticationKey forKey:NWUserSavedAuthenticationToken];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
-
-+ (BOOL)showIngredientsSubmissionView
-{
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]) {
-        return NO;
-    }
-    
-    
-    return YES;
 }
 
 @end

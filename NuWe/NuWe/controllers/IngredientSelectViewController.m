@@ -43,6 +43,7 @@
     NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:_nTopGroupIndex];
     _nSubGroupStartIndex = [number integerValue];
 
+    [self.btnBack setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_back"] forState:UIControlStateNormal];
     
     _nRealCount = topGroup.nSubGroupNum;
     _nCount = _nRealCount + 5;

@@ -12,12 +12,9 @@
 
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property (nonatomic, weak) IBOutlet UIButton* btnNext;
+@property (nonatomic, weak) IBOutlet UIButton* btnDismiss;
 
 - (IBAction)onClose;
 - (IBAction)onNext;
-
-
-+ (void)startServiceWithAuthenticationKey:(NSString*) authenticationKey;
-+ (BOOL)showIngredientsSubmissionView;
 
 @end
