@@ -25,17 +25,17 @@
 /* Begin PBXBuildFile section */
 		7B42953819A6B1B8004B6944 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B42953719A6B1B8004B6944 /* CoreFoundation.framework */; };
 		7B42953E19A6B1B8004B6944 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B42953C19A6B1B8004B6944 /* InfoPlist.strings */; };
-		7B42954D19A6B688004B6944 /* btn_nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52219A63BC0003F9FBE /* btn_nav_back@2x.png */; };
-		7B42954E19A6B688004B6944 /* btn_nav_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52319A63BC0003F9FBE /* btn_nav_next@2x.png */; };
-		7B42954F19A6B688004B6944 /* btn_nav_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52419A63BC0003F9FBE /* btn_nav_x@2x.png */; };
-		7B42955019A6B688004B6944 /* btn_round_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52519A63BC0003F9FBE /* btn_round_green@2x.png */; };
-		7B42955119A6B688004B6944 /* btn_round_green_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52619A63BC0003F9FBE /* btn_round_green_32@2x.png */; };
-		7B42955219A6B688004B6944 /* btn_round_green_pencil_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52719A63BC0003F9FBE /* btn_round_green_pencil_32@2x.png */; };
-		7B42955319A6B688004B6944 /* btn_round_white_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52819A63BC0003F9FBE /* btn_round_white_32@2x.png */; };
-		7B42955419A6B688004B6944 /* btn_round_white_pencil_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52919A63BC0003F9FBE /* btn_round_white_pencil_32@2x.png */; };
-		7B42955519A6B694004B6944 /* NuWeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A53519A63BC0003F9FBE /* NuWeMain.storyboard */; };
 		7B42955819A6B9B4004B6944 /* NuWeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B42955619A6B9B4004B6944 /* NuWeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B42955919A6B9B4004B6944 /* NuWeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B42955719A6B9B4004B6944 /* NuWeManager.m */; };
+		7B42956319A6DF49004B6944 /* btn_nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52219A63BC0003F9FBE /* btn_nav_back@2x.png */; };
+		7B42956419A6DF49004B6944 /* btn_nav_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52319A63BC0003F9FBE /* btn_nav_next@2x.png */; };
+		7B42956519A6DF49004B6944 /* btn_nav_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52419A63BC0003F9FBE /* btn_nav_x@2x.png */; };
+		7B42956619A6DF49004B6944 /* btn_round_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52519A63BC0003F9FBE /* btn_round_green@2x.png */; };
+		7B42956719A6DF49004B6944 /* btn_round_green_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52619A63BC0003F9FBE /* btn_round_green_32@2x.png */; };
+		7B42956819A6DF49004B6944 /* btn_round_green_pencil_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52719A63BC0003F9FBE /* btn_round_green_pencil_32@2x.png */; };
+		7B42956919A6DF49004B6944 /* btn_round_white_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52819A63BC0003F9FBE /* btn_round_white_32@2x.png */; };
+		7B42956A19A6DF49004B6944 /* btn_round_white_pencil_32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A52919A63BC0003F9FBE /* btn_round_white_pencil_32@2x.png */; };
+		7B42956B19A6DF51004B6944 /* NuWeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B61A53519A63BC0003F9FBE /* NuWeMain.storyboard */; };
 		7B61A38319A5C472003F9FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A38219A5C472003F9FBE /* Foundation.framework */; };
 		7B61A38819A5C472003F9FBE /* NuWe.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7B61A38719A5C472003F9FBE /* NuWe.h */; };
 		7B61A39119A5C472003F9FBE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A39019A5C472003F9FBE /* XCTest.framework */; };
@@ -47,7 +47,7 @@
 		7B61A3A919A5C4DB003F9FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A3A819A5C4DB003F9FBE /* UIKit.framework */; };
 		7B61A3AB19A5C54C003F9FBE /* NuWe.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B61A38719A5C472003F9FBE /* NuWe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B61A43219A5D403003F9FBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B61A43119A5D403003F9FBE /* QuartzCore.framework */; };
-		7B61A53919A63BC0003F9FBE /* IngredientListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B61A4EA19A63BC0003F9FBE /* IngredientListViewController.h */; };
+		7B61A53919A63BC0003F9FBE /* IngredientListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B61A4EA19A63BC0003F9FBE /* IngredientListViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B61A53A19A63BC0003F9FBE /* IngredientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B61A4EB19A63BC0003F9FBE /* IngredientListViewController.m */; };
 		7B61A53B19A63BC0003F9FBE /* IngredientSelectViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B61A4EC19A63BC0003F9FBE /* IngredientSelectViewController.h */; };
 		7B61A53C19A63BC0003F9FBE /* IngredientSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B61A4ED19A63BC0003F9FBE /* IngredientSelectViewController.m */; };
@@ -648,16 +648,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B42954F19A6B688004B6944 /* btn_nav_x@2x.png in Resources */,
-				7B42955119A6B688004B6944 /* btn_round_green_32@2x.png in Resources */,
-				7B42954E19A6B688004B6944 /* btn_nav_next@2x.png in Resources */,
-				7B42955219A6B688004B6944 /* btn_round_green_pencil_32@2x.png in Resources */,
-				7B42955519A6B694004B6944 /* NuWeMain.storyboard in Resources */,
-				7B42955419A6B688004B6944 /* btn_round_white_pencil_32@2x.png in Resources */,
-				7B42954D19A6B688004B6944 /* btn_nav_back@2x.png in Resources */,
-				7B42955319A6B688004B6944 /* btn_round_white_32@2x.png in Resources */,
-				7B42955019A6B688004B6944 /* btn_round_green@2x.png in Resources */,
 				7B42953E19A6B1B8004B6944 /* InfoPlist.strings in Resources */,
+				7B42956619A6DF49004B6944 /* btn_round_green@2x.png in Resources */,
+				7B42956419A6DF49004B6944 /* btn_nav_next@2x.png in Resources */,
+				7B42956919A6DF49004B6944 /* btn_round_white_32@2x.png in Resources */,
+				7B42956B19A6DF51004B6944 /* NuWeMain.storyboard in Resources */,
+				7B42956819A6DF49004B6944 /* btn_round_green_pencil_32@2x.png in Resources */,
+				7B42956719A6DF49004B6944 /* btn_round_green_32@2x.png in Resources */,
+				7B42956319A6DF49004B6944 /* btn_nav_back@2x.png in Resources */,
+				7B42956A19A6DF49004B6944 /* btn_round_white_pencil_32@2x.png in Resources */,
+				7B42956519A6DF49004B6944 /* btn_nav_x@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,6 +1003,7 @@
 				7B42954119A6B1B8004B6944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B61A37A19A5C472003F9FBE /* Build configuration list for PBXProject "NuWe" */ = {
 			isa = XCConfigurationList;

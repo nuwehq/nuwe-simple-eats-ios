@@ -31,7 +31,6 @@
 
 -(IBAction)displayEatNuWe:(id)sender
 {
-//    IngredientListViewController* integratedListController =
     [[NuWeManager sharedManager] startServiceWithAuthenticationKey:@"65801fd1-3d94-4599-9d06-475b5ee01e28"];
     [[NuWeManager sharedManager] showIngredientsSubmissionViewAboveViewController:self];
 }
