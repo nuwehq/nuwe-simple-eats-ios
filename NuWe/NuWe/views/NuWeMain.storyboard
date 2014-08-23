@@ -178,7 +178,276 @@
             </objects>
             <point key="canvasLocation" x="1153" y="947"/>
         </scene>
+        <!--Helper Ingredient Group View Controller-->
+        <scene sceneID="aBA-o3-J0L">
+            <objects>
+                <viewController storyboardIdentifier="helperIngredientGroupController" id="dmI-jR-iAJ" customClass="HelperIngredientGroupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcA-81-gFa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="535" affinity="minY"/>
+                            <userLayoutGuide location="486" affinity="minY"/>
+                            <userLayoutGuide location="315" affinity="minY"/>
+                            <userLayoutGuide location="480" affinity="minY"/>
+                        </userGuides>
+                        <subviews>
+                            <view tag="500" contentMode="scaleToFill" id="Pve-zq-wZI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tsr-fW-GZU">
+                                        <rect key="frame" x="270" y="20" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" backgroundImage="btn_nav_x.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClose:" destination="dmI-jR-iAJ" eventType="touchUpInside" id="jlb-4w-eiG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yhQ-tP-J6r">
+                                        <rect key="frame" x="79" y="34" width="163" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="KPE-9E-4DN">
+                                <rect key="frame" x="0.0" y="70" width="320" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="vvy-es-GRg">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <userGuides>
+                                            <userLayoutGuide location="45" affinity="minY"/>
+                                        </userGuides>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_ingredient.png" id="gkt-tF-jFe">
+                                                <rect key="frame" x="110" y="95" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the many ingredients already on nutribu to build your own meals and favourite recipes. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wWK-wW-AvB">
+                                                <rect key="frame" x="20" y="237" width="280" height="52"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raw Ingredients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PAf-sv-IWy">
+                                                <rect key="frame" x="16" y="37" width="290" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="dmI-jR-iAJ" id="OeV-EK-J6j"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" id="jhD-3A-c1e">
+                                <rect key="frame" x="140" y="470" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.35686274509999999" green="0.80784313730000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onPageControlChanged:" destination="dmI-jR-iAJ" eventType="valueChanged" id="vVU-0z-zXW"/>
+                                </connections>
+                            </pageControl>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_triangle_inverse.png" id="WUr-lY-xGq">
+                                <rect key="frame" x="146" y="70" width="29" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WGJ-c7-ejZ">
+                                <rect key="frame" x="20" y="523" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Don’t show this anymore">
+                                    <color key="titleColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNoShow:" destination="dmI-jR-iAJ" eventType="touchUpInside" id="2Bw-TH-iYY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDismiss" destination="Tsr-fW-GZU" id="mTG-1T-Yby"/>
+                        <outlet property="btnNoShow" destination="WGJ-c7-ejZ" id="gQM-OS-7fZ"/>
+                        <outlet property="pageControl" destination="jhD-3A-c1e" id="a2B-WW-K1u"/>
+                        <outlet property="scrollView" destination="KPE-9E-4DN" id="r2z-JG-qp4"/>
+                        <outlet property="tipInsideTriangleImageView" destination="WUr-lY-xGq" id="w38-7S-Wet"/>
+                        <outlet property="tutorialImageViewIngrediants" destination="gkt-tF-jFe" id="Q3t-1t-YMp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBm-of-vPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="141"/>
+        </scene>
+        <!--Helper Ingredient Select View Controller-->
+        <scene sceneID="ZuH-DV-EOv">
+            <objects>
+                <viewController storyboardIdentifier="helperIngredientSelectController" id="gAq-y1-psx" customClass="HelperIngredientSelectViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jsm-T1-F7r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="535" affinity="minY"/>
+                            <userLayoutGuide location="485" affinity="minY"/>
+                            <userLayoutGuide location="315" affinity="minY"/>
+                            <userLayoutGuide location="480" affinity="minY"/>
+                        </userGuides>
+                        <subviews>
+                            <view tag="500" contentMode="scaleToFill" id="1oS-zV-jJm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5YS-mE-oPY">
+                                        <rect key="frame" x="270" y="20" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" backgroundImage="btn_nav_x.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClose:" destination="gAq-y1-psx" eventType="touchUpInside" id="x3s-Vs-CVy"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9TX-6n-AP1">
+                                        <rect key="frame" x="79" y="34" width="163" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="UxS-WG-Coy">
+                                <rect key="frame" x="0.0" y="70" width="320" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="gI1-6d-HPc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <userGuides>
+                                            <userLayoutGuide location="45" affinity="minY"/>
+                                        </userGuides>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_level.png" id="roB-o2-ofl">
+                                                <rect key="frame" x="110" y="95" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pHd-xd-O51">
+                                                <rect key="frame" x="16" y="230" width="288" height="82"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <string key="text">Small, medium or large. We've developed a selection of standard quantities with nutritionists and chefs to make it easier to record your meals. </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S M L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dze-pb-vbb">
+                                                <rect key="frame" x="16" y="37" width="290" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="uXU-Qp-F8I">
+                                        <rect key="frame" x="320" y="0.0" width="320" height="350"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <userGuides>
+                                            <userLayoutGuide location="45" affinity="minY"/>
+                                        </userGuides>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_pencil.png" id="nMQ-8R-XkH">
+                                                <rect key="frame" x="110" y="95" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to show how much of each ingredient is in each standard quantity. Press edit to change it to the exact amount. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BoV-yX-OiR">
+                                                <rect key="frame" x="16" y="237" width="288" height="52"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input your own quantities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5oN-3h-MAP">
+                                                <rect key="frame" x="16" y="37" width="290" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="gAq-y1-psx" id="3hw-BR-tma"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="QAK-UK-j7b">
+                                <rect key="frame" x="140" y="470" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.35686274509999999" green="0.80784313730000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onPageControlChanged:" destination="gAq-y1-psx" eventType="valueChanged" id="832-Vc-eiW"/>
+                                </connections>
+                            </pageControl>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_triangle_inverse.png" id="exo-3f-una">
+                                <rect key="frame" x="146" y="70" width="29" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7W3-6V-vSg">
+                                <rect key="frame" x="20" y="523" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Don’t show this anymore">
+                                    <color key="titleColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNoShow:" destination="gAq-y1-psx" eventType="touchUpInside" id="Luf-zr-HCk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDismiss" destination="5YS-mE-oPY" id="Yqw-9p-08P"/>
+                        <outlet property="btnNoShow" destination="7W3-6V-vSg" id="9Au-Ug-MLH"/>
+                        <outlet property="pageControl" destination="QAK-UK-j7b" id="TOS-jL-VK0"/>
+                        <outlet property="scrollView" destination="UxS-WG-Coy" id="XQk-2m-REE"/>
+                        <outlet property="tipInsideTriangleImageView" destination="exo-3f-una" id="wPq-TL-crm"/>
+                        <outlet property="tutorialImageViewManualEdits" destination="nMQ-8R-XkH" id="Hvu-68-5Z0"/>
+                        <outlet property="tutorialImageViewQuantity" destination="roB-o2-ofl" id="5Zn-aT-2Cg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZU-Sc-PX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="141"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="btn_nav_x.png" width="50" height="50"/>
+        <image name="icon_help_ingredient.png" width="100" height="100"/>
+        <image name="icon_help_level.png" width="100" height="100"/>
+        <image name="icon_help_pencil.png" width="100" height="100"/>
+        <image name="icon_help_triangle_inverse.png" width="28" height="14"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

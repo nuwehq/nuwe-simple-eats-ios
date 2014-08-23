@@ -6,10 +6,14 @@
 //  Copyright (c) 2014 Chang. All rights reserved.
 //
 
+// Controllers..
+#import "IngredientSelectViewController.h"
+#import "HelperIngredientSelectViewController.h"
+
+// Model..
 #import "Data.h"
 #import "Common.h"
-#import "IngredientSelectViewController.h"
-//#import "HelperIngredientSelectViewController.h"
+
 
 @interface IngredientSelectViewController ()
 {
@@ -56,10 +60,10 @@
             _tableView.frame = CGRectMake(0, 70, 320, 480 - 78);
     }
     
-//    if (gData.fDisableHelpForIngredientSelect == NO)
-//    {
-//        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
-//    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoSelectIngrediantsHelp] || ![[[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoSelectIngrediantsHelp] boolValue])
+    {
+        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
+    }
 
 
 }
@@ -134,15 +138,15 @@
 
 - (void)showHelper
 {
-//    HelperIngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"helperIngredientSelectController"];
-//    [self addChildViewController:controller];
-//    [self.view addSubview:controller.view];
-//    
-//    CGRect frame = self.view.bounds;
-//    controller.view.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height);
-//    [UIView animateWithDuration:POPUP_HELPER_DURATION animations:^{
-//        controller.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-//    }];
+    HelperIngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"helperIngredientSelectController"];
+    [self addChildViewController:controller];
+    [self.view addSubview:controller.view];
+    
+    CGRect frame = self.view.bounds;
+    controller.view.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height);
+    [UIView animateWithDuration:POPUP_HELPER_DURATION animations:^{
+        controller.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    }];
     
 }
 

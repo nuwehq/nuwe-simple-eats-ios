@@ -10,7 +10,7 @@
 
 // Controllers ..
 #import "IngredientSelectViewController.h"
-//#import "HelperIngredientGroupViewController.h"
+#import "HelperIngredientGroupViewController.h"
 
 // Views ..
 #import "MBProgressHUD.h"
@@ -22,7 +22,7 @@
 #import "HTTPClient.h"
 #import "Common.h"
 
-@interface IngredientListViewController () <HTTPClientDelegate>
+@interface IngredientListViewController ()
 
 @end
 
@@ -42,36 +42,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-//    if (gData.fDisableHelpForIngredientList == NO)
-//    {
-//        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
-//    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoGroupIngrediantsHelp] || ![[[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoGroupIngrediantsHelp] boolValue])
+    {
+        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
+    }
     
     [self.btnNext setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_next"] forState:UIControlStateNormal];
     [self.btnDismiss setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_x"] forState:UIControlStateNormal];
-    
-    if ([[UIDevice currentDevice].systemVersion floatValue] < 7.f)
-    {
-        for (UIView* view in self.view.subviews)
-        {
-            if (view.tag < 500)
-                continue;
-            
-            CGRect frame;
-            if (view.tag == 500)
-            {//navigation bar
-                frame = view.frame;
-                frame.size.height = 50;
-                view.frame = frame;
-            }
-            else
-            {
-                frame = view.frame;
-                frame.origin.y -= 20;
-                view.frame = frame;
-            }
-        }
-    }
     
     if (IS_IOS7)
     {
@@ -221,20 +198,18 @@
 
 - (void)showHelper
 {
-//    HelperIngredientGroupViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"helperIngredientGroupController"];
-//    [self addChildViewController:controller];
-//    [self.view addSubview:controller.view];
-//    
-//    CGRect frame = self.view.bounds;
-//    controller.view.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height);
-//    [UIView animateWithDuration:POPUP_HELPER_DURATION animations:^{
-//        controller.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-//    }];
+    HelperIngredientGroupViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"helperIngredientGroupController"];
+    [self addChildViewController:controller];
+    [self.view addSubview:controller.view];
     
+    CGRect frame = self.view.bounds;
+    controller.view.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height);
+    [UIView animateWithDuration:POPUP_HELPER_DURATION animations:^{
+        controller.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    }];
 }
 
 #pragma mark - httpClient delegate
-
 - (void)didLoadIngredientsSuccess
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -256,9 +231,7 @@
     [alertView show];
 }
 
-
 #pragma mark - http client delegate
-
 - (void)didEatIngredientsSuccess
 {
     [self didLoadIngredientsSuccess];

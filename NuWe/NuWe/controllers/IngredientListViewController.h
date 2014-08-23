@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SuperViewController.h"
 
-@interface IngredientListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface IngredientListViewController : SuperViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property (nonatomic, weak) IBOutlet UIButton* btnNext;
