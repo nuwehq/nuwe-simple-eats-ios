@@ -199,7 +199,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tsr-fW-GZU">
                                         <rect key="frame" x="270" y="20" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <state key="normal" backgroundImage="btn_nav_x.png">
+                                        <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -227,7 +227,7 @@
                                             <userLayoutGuide location="45" affinity="minY"/>
                                         </userGuides>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_ingredient.png" id="gkt-tF-jFe">
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gkt-tF-jFe">
                                                 <rect key="frame" x="110" y="95" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
@@ -262,7 +262,7 @@
                                     <action selector="onPageControlChanged:" destination="dmI-jR-iAJ" eventType="valueChanged" id="vVU-0z-zXW"/>
                                 </connections>
                             </pageControl>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_triangle_inverse.png" id="WUr-lY-xGq">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WUr-lY-xGq">
                                 <rect key="frame" x="146" y="70" width="29" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -343,7 +343,7 @@
                                             <userLayoutGuide location="45" affinity="minY"/>
                                         </userGuides>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_level.png" id="roB-o2-ofl">
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="roB-o2-ofl">
                                                 <rect key="frame" x="110" y="95" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
@@ -372,7 +372,7 @@
                                             <userLayoutGuide location="45" affinity="minY"/>
                                         </userGuides>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_pencil.png" id="nMQ-8R-XkH">
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nMQ-8R-XkH">
                                                 <rect key="frame" x="110" y="95" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
@@ -407,7 +407,7 @@
                                     <action selector="onPageControlChanged:" destination="gAq-y1-psx" eventType="valueChanged" id="832-Vc-eiW"/>
                                 </connections>
                             </pageControl>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_help_triangle_inverse.png" id="exo-3f-una">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="exo-3f-una">
                                 <rect key="frame" x="146" y="70" width="29" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -443,10 +443,6 @@
     </scenes>
     <resources>
         <image name="btn_nav_x.png" width="50" height="50"/>
-        <image name="icon_help_ingredient.png" width="100" height="100"/>
-        <image name="icon_help_level.png" width="100" height="100"/>
-        <image name="icon_help_pencil.png" width="100" height="100"/>
-        <image name="icon_help_triangle_inverse.png" width="28" height="14"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
