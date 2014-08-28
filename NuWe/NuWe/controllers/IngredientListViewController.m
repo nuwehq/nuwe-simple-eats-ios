@@ -52,7 +52,7 @@
     
     if (IS_IOS7)
     {
-        if (!IS_IPHONE_5)
+        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad && !IS_IPHONE_5)
             _tableView.frame = CGRectMake(0, 70, 320, 480 - 78);
     }
     

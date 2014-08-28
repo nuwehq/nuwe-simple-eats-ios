@@ -76,16 +76,17 @@
 
 - (void)initializer
 {
-    UIView* viewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height + 1)];
+    
+    UIView* viewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableview.frame), _height + 1)];
     viewBackground.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:viewBackground];
     
-    UIView* viewSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, _height, CGRectGetWidth(self.bounds), 1)];
+    UIView* viewSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, _height, CGRectGetWidth(self.tableview.frame), 1)];
     viewSeperator.backgroundColor = gData.colorGreen;
     [viewBackground addSubview:viewSeperator];
     
-    self.cellScrollView = [[IngredientSelectCellScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
-    _cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + kIngredientSelectCellRightViewWidth,  _height);
+    self.cellScrollView = [[IngredientSelectCellScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableview.frame), _height)];
+    _cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.tableview.frame) + kIngredientSelectCellRightViewWidth,  _height);
     _cellScrollView.delegate = self;
     _cellScrollView.showsHorizontalScrollIndicator = NO;
     _cellScrollView.scrollsToTop = NO;
@@ -94,7 +95,7 @@
     
 //    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onHandleTap:)];
 //    [_cellScrollView addGestureRecognizer:_tapGestureRecognizer];
-    self.viewRight = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.bounds), 0, kIngredientSelectCellRightViewWidth, _height)];
+    self.viewRight = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.tableview.frame), 0, kIngredientSelectCellRightViewWidth, _height)];
     _viewRight.backgroundColor = [UIColor whiteColor];
     [_cellScrollView addSubview:_viewRight];
     
@@ -133,7 +134,7 @@
     [_viewRight addSubview:lblUnit];
     
     
-    self.viewCenter = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
+    self.viewCenter = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableview.frame), _height)];
     _viewCenter.backgroundColor = [UIColor whiteColor];
     [_cellScrollView addSubview:_viewCenter];
 
@@ -145,7 +146,7 @@
     [_viewCenter addSubview:_lblName];
     
     
-    UIButton* btnS = [[UIButton alloc] initWithFrame:CGRectMake(204, 9, 32, 32)];
+    UIButton* btnS = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.tableview.frame) - 116, 9, 32, 32)];
     btnS.tag = 50;
     btnS.titleLabel.font = [UIFont systemFontOfSize:16];
     btnS.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -158,7 +159,7 @@
     [_viewCenter addSubview:btnS];
 
     
-    UIButton* btnM = [[UIButton alloc] initWithFrame:CGRectMake(244, 9, 32, 32)];
+    UIButton* btnM = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.tableview.frame) - 76 , 9, 32, 32)];
     btnM.tag = 51;
     btnM.titleLabel.font = [UIFont systemFontOfSize:16];
     btnM.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -170,7 +171,7 @@
     [btnM addTarget:self action:@selector(onSelectLevel:) forControlEvents:UIControlEventTouchUpInside];
     [_viewCenter addSubview:btnM];
     
-    UIButton* btnL = [[UIButton alloc] initWithFrame:CGRectMake(284, 9, 32, 32)];
+    UIButton* btnL = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.tableview.frame) - 36, 9, 32, 32)];
     btnL.tag = 52;
     btnL.titleLabel.font = [UIFont systemFontOfSize:16];
     btnL.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -408,7 +409,7 @@
 {
     self.tableview.scrollEnabled = NO;
     
-    _viewRight.frame = CGRectMake(scrollView.contentOffset.x + (CGRectGetWidth(self.bounds) - kIngredientSelectCellRightViewWidth), 0, kIngredientSelectCellRightViewWidth, _height);
+    _viewRight.frame = CGRectMake(scrollView.contentOffset.x + (CGRectGetWidth(self.tableview.frame) - kIngredientSelectCellRightViewWidth), 0, kIngredientSelectCellRightViewWidth, _height);
     
 }
 

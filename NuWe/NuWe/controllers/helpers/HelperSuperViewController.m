@@ -32,9 +32,9 @@
 
     [self.tipInsideTriangleImageView setImage:[UIImage imageNamed:@"NuWe.bundle/icon_help_triangle_inverse"]];
     
-    [_scrollView setContentSize:CGSizeMake(_pageControl.numberOfPages * 320, _scrollView.frame.size.height)];
+    [_scrollView setContentSize:CGSizeMake(_pageControl.numberOfPages * self.scrollView.frame.size.width, _scrollView.frame.size.height)];
     
-    if (!IS_IPHONE_5)
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad && !IS_IPHONE_5)
     {
         CGRect frame;
         frame = _pageControl.frame;
@@ -80,7 +80,7 @@
 
 - (IBAction)onPageControlChanged:(id)sender
 {
-    [_scrollView setContentOffset:CGPointMake(_pageControl.currentPage * 320, 0) animated:YES];
+    [_scrollView setContentOffset:CGPointMake(_pageControl.currentPage * self.scrollView.frame.size.width, 0) animated:YES];
     
 }
 
@@ -101,7 +101,7 @@
 
 - (IBAction)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    _pageControl.currentPage = _scrollView.contentOffset.x / 320;
+    _pageControl.currentPage = _scrollView.contentOffset.x / self.scrollView.frame.size.width;
 }
 
 

@@ -48,7 +48,16 @@ static NSString* settingsFileName = @"app-settings.plist";
         return NO;
     }
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NuWe.bundle/NuWeMain" bundle:nil];
+    UIStoryboard *storyboard = nil;
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        storyboard = [UIStoryboard storyboardWithName:@"NuWe.bundle/NuWeMain-iPad" bundle:nil];
+    }
+    else{
+        storyboard = [UIStoryboard storyboardWithName:@"NuWe.bundle/NuWeMain" bundle:nil];
+    }
+    
     UINavigationController* controller = [storyboard instantiateViewControllerWithIdentifier:@"IngredientListViewController"];
     [controller setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [presentedViewController presentViewController:controller animated:NO completion:NULL];
