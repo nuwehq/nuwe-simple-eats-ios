@@ -145,7 +145,7 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientListCellIdentifier" forIndexPath:indexPath];
 
     UIImageView* imageview = (UIImageView*)[cell viewWithTag:1];
-    //imageview.tintColor = gData.colorGreen;
+    [imageview setBackgroundColor:[UIColor clearColor]];
     
     UILabel* label = (UILabel*)[cell viewWithTag:2];
     UILabel* lblNumber = (UILabel* )[cell viewWithTag:3];
