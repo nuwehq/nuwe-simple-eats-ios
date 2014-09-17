@@ -19,6 +19,7 @@
 - (void)loadIngredientGroup;
 - (void)eatIngredients;
 
+- (void)eatIngredientsWithConsideringUpdatingLastEat;
 @end
 
 @protocol HTTPClientDelegate <NSObject>

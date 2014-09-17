@@ -8,6 +8,9 @@
 
 #import "SuperViewController.h"
 
+// Controllers ..
+#import "MBProgressHUD.h"
+
 // Model ..
 #import "Common.h"
 
@@ -67,5 +70,17 @@
 
 }
 #pragma mark - message handler
+- (void) showCoverViewWithMessage:(NSString *) message withDelay:(NSTimeInterval)delay
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+	
+	// Configure for text only and offset down
+	hud.mode = MBProgressHUDModeText;
+	hud.detailsLabelText = message;
+	hud.margin = 10.f;
+	hud.yOffset = 150.f;
+	hud.removeFromSuperViewOnHide = YES;
+	[hud hide:YES afterDelay:delay];
+}
 
 @end

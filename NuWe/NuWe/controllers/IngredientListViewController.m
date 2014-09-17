@@ -124,7 +124,7 @@
 {
     HTTPClient* httpClient = [HTTPClient sharedClient];
     httpClient.delegate = self;
-    [httpClient eatIngredients];
+    [httpClient eatIngredientsWithConsideringUpdatingLastEat];
     
 }
 
@@ -220,8 +220,14 @@
         [gData.aIngredientSubGroupAmount addObject:[NSNumber numberWithInteger:0]];
     }
     
+    _btnNext.enabled = NO;
     [self.tableView reloadData];
     [self.tableView setNeedsDisplay];
+}
+
+-(void) dismissFrameworkView
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didLoadIngredientsFailure:(NSString *)szError
@@ -235,14 +241,16 @@
 - (void)didEatIngredientsSuccess
 {
     [self didLoadIngredientsSuccess];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self showCoverViewWithMessage:@"Your meal is synced successfuly" withDelay:1.5];
+    [NSTimer scheduledTimerWithTimeInterval:1.6 target:self selector:@selector(dismissFrameworkView) userInfo:nil repeats:NO];
 }
 
 - (void)didEatIngredientsFailure:(NSString *)szError
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nutribu" message:szError delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] ;
-    [alertView show];
+//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nutribu" message:szError delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] ;
+//    [alertView show];
+    [self showCoverViewWithMessage:@"Error happens while syncing meal! Please check your internet connection, try again later" withDelay:2.5];
 }
 
 @end
