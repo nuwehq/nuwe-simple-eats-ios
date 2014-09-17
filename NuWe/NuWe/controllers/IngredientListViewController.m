@@ -46,8 +46,8 @@
     {
         [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
     }
-    
-    [self.btnNext setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_next"] forState:UIControlStateNormal];
+
+//    [self.btnNext setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_next"] forState:UIControlStateNormal];
     [self.btnDismiss setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_x"] forState:UIControlStateNormal];
     
     if (IS_IOS7)
