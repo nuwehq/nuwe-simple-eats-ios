@@ -20,6 +20,7 @@
 - (void)eatIngredients;
 
 - (void)eatIngredientsWithConsideringUpdatingLastEat;
+- (void)loadTodaysIngredients;
 @end
 
 @protocol HTTPClientDelegate <NSObject>
@@ -29,5 +30,9 @@
 - (void)didLoadIngredientsFailure:(NSString*)szError;
 - (void)didEatIngredientsSuccess;
 - (void)didEatIngredientsFailure:(NSString*)szError;
+
+
+- (void)didLoadTodayIngredientsSuccess;
+- (void)didLoadTodayIngredientsFailure:(NSString*)szError;
 
 @end

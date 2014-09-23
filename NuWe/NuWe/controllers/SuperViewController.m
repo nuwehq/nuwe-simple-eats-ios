@@ -83,4 +83,16 @@
 	[hud hide:YES afterDelay:delay];
 }
 
+-(void)showLoadingMessage:(NSString *)loadingMsg
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+	hud.labelText = loadingMsg;
+	hud.removeFromSuperViewOnHide = YES;
+}
+
+-(void)hideLoadingMessage
+{
+    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:NO];
+}
+
 @end

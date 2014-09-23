@@ -10,6 +10,7 @@
 
 // Controllers ..
 #import "IngredientSelectViewController.h"
+#import "EatsTodayViewController.h"
 #import "HelperIngredientGroupViewController.h"
 
 // Views ..
@@ -24,6 +25,7 @@
 
 @interface IngredientListViewController ()
 
+- (void)loadTodaysIngredients;
 @end
 
 @implementation IngredientListViewController
@@ -125,14 +127,15 @@
     HTTPClient* httpClient = [HTTPClient sharedClient];
     httpClient.delegate = self;
     [httpClient eatIngredientsWithConsideringUpdatingLastEat];
-    
 }
+
+
 
 #pragma mark - UITableView delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [gData.aIngredientTopGroups count]; // + 1;
+    return [gData.aIngredientTopGroups count] + 1; // +1 For Tracking Today's Eats
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,32 +153,43 @@
     UILabel* label = (UILabel*)[cell viewWithTag:2];
     UILabel* lblNumber = (UILabel* )[cell viewWithTag:3];
     
-    int nTopGroupIndex = (int)indexPath.row;
-    IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:nTopGroupIndex];
-    
-    [imageview setImageWithURL:[NSURL URLWithString:topGroup.szIconPathTiny]];
-    label.text = topGroup.szName;
-
-    NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex];
-    int nStartIndex = (int)[number integerValue];
-    
-    int nSelectCount = 0;
-    for (int i = 0; i < topGroup.nSubGroupNum; i++)
-    {
-        NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:nStartIndex + i];
-        if (numberAmount.integerValue)
-            nSelectCount++;
-    }
-   
-    if (nSelectCount)
-    {
-        lblNumber.hidden = NO;
-        lblNumber.text = [NSString stringWithFormat:@"%d", nSelectCount];
-    }
-    else
-    {
+    if (indexPath.row == 0) {
+        
+        [imageview setImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_pencil_32"]];
+        label.text = @"Today's eat";
         lblNumber.hidden = YES;
         lblNumber.text = @"";
+        
+    }else
+    {
+        int nTopGroupIndex = (int)indexPath.row - 1;
+        IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:nTopGroupIndex];
+        
+        [imageview setImageWithURL:[NSURL URLWithString:topGroup.szIconPathTiny] placeholderImage:nil];
+        label.text = topGroup.szName;
+        
+        NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex];
+        int nStartIndex = (int)[number integerValue];
+        
+        int nSelectCount = 0;
+        for (int i = 0; i < topGroup.nSubGroupNum; i++)
+        {
+            NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:nStartIndex + i];
+            if (numberAmount.integerValue)
+                nSelectCount++;
+        }
+        
+        if (nSelectCount)
+        {
+            lblNumber.hidden = NO;
+            lblNumber.text = [NSString stringWithFormat:@"%d", nSelectCount];
+        }
+        else
+        {
+            lblNumber.hidden = YES;
+            lblNumber.text = @"";
+        }
+
     }
     
     return cell;
@@ -185,9 +199,16 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    if ((int)[indexPath row] == 0) {
+        
+        [self showLoadingMessage:@"Loading Today's Eats..."];
+        [self performSelector:@selector(loadTodaysIngredients) withObject:nil afterDelay:0.1];
+        
+        
+        return;
+    }
     IngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ingredientSelectController"];
-   
-    int nTopGroupIndex = (int)[indexPath row]; // remove  - 1 as There is no scanner cell
+    int nTopGroupIndex = (int)[indexPath row] - 1 ; //  - 1 beacuase of Today's eats loading cell
     controller.nTopGroupIndex = nTopGroupIndex;
     
     if ([gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex] != [NSNull null])
@@ -252,5 +273,34 @@
 //    [alertView show];
     [self showCoverViewWithMessage:@"Error happens while syncing meal! Please check your internet connection, try again later" withDelay:2.5];
 }
+
+
+- (void)didLoadTodayIngredientsSuccess
+{
+    [self hideLoadingMessage];
+    NSLog(@"didLoadTodayIngredientsSuccess");
+    
+    EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
+    int nTopGroupIndex = 0 ;
+    controller.nTopGroupIndex = nTopGroupIndex;
+    
+    if ([gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex] != [NSNull null])
+        [self.navigationController pushViewController:controller animated:YES];
+    
+}
+
+- (void)didLoadTodayIngredientsFailure:(NSString*)szError
+{
+    [self hideLoadingMessage];
+    [self showCoverViewWithMessage:@"Error happens while loading Today's eats! Please check your internet connection, try again later" withDelay:2.5];
+}
+
+- (void)loadTodaysIngredients
+{
+    HTTPClient* httpClient = [HTTPClient sharedClient];
+    httpClient.delegate = self;
+    [httpClient loadTodaysIngredients];
+}
+
 
 @end

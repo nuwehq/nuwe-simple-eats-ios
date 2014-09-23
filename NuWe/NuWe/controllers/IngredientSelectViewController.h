@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "IngredientSelectCell.h"
+#import "SuperViewController.h"
 
-@interface IngredientSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface IngredientSelectViewController : SuperViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UILabel* lblTitle;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;

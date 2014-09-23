@@ -105,6 +105,8 @@
 		7B61A57219A63BC1003F9FBE /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B61A53719A63BC0003F9FBE /* MBProgressHUD.h */; };
 		7B61A57319A63BC1003F9FBE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B61A53819A63BC0003F9FBE /* MBProgressHUD.m */; };
 		7B902F4019AF7591001DB8C7 /* NuWeMain-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B902F3F19AF7591001DB8C7 /* NuWeMain-iPad.storyboard */; };
+		7BAAB1B319D1343300A37733 /* EatsTodayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BAAB1B119D1343300A37733 /* EatsTodayViewController.h */; };
+		7BAAB1B419D1343300A37733 /* EatsTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAAB1B219D1343300A37733 /* EatsTodayViewController.m */; };
 		7BCBCDD519A79AEA003CA643 /* HelperIngredientGroupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BCBCDCF19A79AEA003CA643 /* HelperIngredientGroupViewController.h */; };
 		7BCBCDD619A79AEA003CA643 /* HelperIngredientGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCDD019A79AEA003CA643 /* HelperIngredientGroupViewController.m */; };
 		7BCBCDD719A79AEA003CA643 /* HelperIngredientSelectViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BCBCDD119A79AEA003CA643 /* HelperIngredientSelectViewController.h */; };
@@ -243,6 +245,8 @@
 		7B61A53719A63BC0003F9FBE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7B61A53819A63BC0003F9FBE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7B902F3F19AF7591001DB8C7 /* NuWeMain-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "NuWeMain-iPad.storyboard"; sourceTree = "<group>"; };
+		7BAAB1B119D1343300A37733 /* EatsTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EatsTodayViewController.h; sourceTree = "<group>"; };
+		7BAAB1B219D1343300A37733 /* EatsTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EatsTodayViewController.m; sourceTree = "<group>"; };
 		7BCBCDCF19A79AEA003CA643 /* HelperIngredientGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperIngredientGroupViewController.h; sourceTree = "<group>"; };
 		7BCBCDD019A79AEA003CA643 /* HelperIngredientGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperIngredientGroupViewController.m; sourceTree = "<group>"; };
 		7BCBCDD119A79AEA003CA643 /* HelperIngredientSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperIngredientSelectViewController.h; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				7B61A4ED19A63BC0003F9FBE /* IngredientSelectViewController.m */,
 				7BCBCDE319A86423003CA643 /* SuperViewController.h */,
 				7BCBCDE419A86423003CA643 /* SuperViewController.m */,
+				7BAAB1B119D1343300A37733 /* EatsTodayViewController.h */,
+				7BAAB1B219D1343300A37733 /* EatsTodayViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -592,6 +598,7 @@
 				7B61A55419A63BC0003F9FBE /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				7BCBCDD919A79AEA003CA643 /* HelperSuperViewController.h in Headers */,
 				7B61A56E19A63BC1003F9FBE /* SKSTableViewCell.h in Headers */,
+				7BAAB1B319D1343300A37733 /* EatsTodayViewController.h in Headers */,
 				7B61A56119A63BC1003F9FBE /* UIWebView+AFNetworking.h in Headers */,
 				7B61A54319A63BC0003F9FBE /* AFHTTPSessionManager.h in Headers */,
 				7B61A3AB19A5C54C003F9FBE /* NuWe.h in Headers */,
@@ -792,6 +799,7 @@
 				7B61A54419A63BC0003F9FBE /* AFHTTPSessionManager.m in Sources */,
 				7B61A55719A63BC0003F9FBE /* UIAlertView+AFNetworking.m in Sources */,
 				7B61A54D19A63BC0003F9FBE /* AFURLRequestSerialization.m in Sources */,
+				7BAAB1B419D1343300A37733 /* EatsTodayViewController.m in Sources */,
 				7B61A56B19A63BC1003F9FBE /* IngredientSelectCell.m in Sources */,
 				7B61A55319A63BC0003F9FBE /* AFNetworkActivityIndicatorManager.m in Sources */,
 				7B61A55119A63BC0003F9FBE /* AFURLSessionManager.m in Sources */,

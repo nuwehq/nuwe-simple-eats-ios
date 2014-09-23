@@ -14,7 +14,9 @@
 @interface SuperViewController : UIViewController <HTTPClientDelegate>
 
 
-- (void) showCoverViewWithMessage:(NSString *) message withDelay:(NSTimeInterval)delay;
+- (void)showCoverViewWithMessage:(NSString *) message withDelay:(NSTimeInterval)delay;
+- (void)showLoadingMessage:(NSString *)loadingMsg;
+- (void)hideLoadingMessage;
 
 - (IBAction)onBack:(id)sender;
 

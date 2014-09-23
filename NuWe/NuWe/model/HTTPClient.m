@@ -249,9 +249,6 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
                  formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'";
                  createdAtDate = [formatter dateFromString:[dict objectForKey: @"created_at"]];
                  
-                 
-                 NSLog(@"String from server:%@    Created Date:%@    now:%@",[dict objectForKey: @"created_at"]  ,createdAtDate , todayDate );
-                 
                  if ([self isSameDayWithDate1:todayDate date2:createdAtDate]) {
                      idOfLastEatToday = [dict objectForKey: @"id"];
                      NSArray* arrayOfComponents = [dict objectForKey:@"components"];
@@ -317,6 +314,111 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
          
      }];
 }
+
+
+- (void)loadTodaysIngredients
+{
+    
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
+    
+    
+    
+    
+    [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"get Index page of eats successfully : %@", responseObject);
+         NSMutableDictionary* dictionaryOfComponents = [[NSMutableDictionary alloc] initWithCapacity:20];
+         NSString* idOfLastEatToday = nil;
+         NSDate * createdAtDate = nil;
+         
+         NSInteger nStatusCode = operation.response.statusCode;
+         if (nStatusCode == 200)
+         {
+             NSDate* start = [NSDate date];
+             NSArray *array = (NSArray*)[(NSDictionary*)responseObject objectForKey:@"eats"];
+             int count = (int)[array count];
+             if (count > 1) {
+                 NSDictionary* dict = [array objectAtIndex:0];
+                 
+                 NSDate *todayDate = [NSDate date];
+                 
+                 NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                 [formatter setTimeZone:gmt];
+                 // 2014-09-09T12:39:22.002Z
+                 formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'";
+                 createdAtDate = [formatter dateFromString:[dict objectForKey: @"created_at"]];
+                 
+                 if ([self isSameDayWithDate1:todayDate date2:createdAtDate]) {
+                     idOfLastEatToday = [dict objectForKey: @"id"];
+                     NSArray* arrayOfComponents = [dict objectForKey:@"components"];
+                     if (arrayOfComponents != (NSArray*)[NSNull null])
+                     {
+                         for (NSDictionary* dict in arrayOfComponents)
+                         {
+                             NSString* ingrediantID = [dict objectForKey: @"ingredient_id"];
+                             NSNumber* amountNumber = [[NSNumber alloc]initWithInt:[[dict objectForKey: @"amount"] intValue]];
+                             [dictionaryOfComponents setObject:amountNumber forKey:ingrediantID];
+                         }
+                     }
+                 }
+             }
+             
+             int nCount = (int)[gData.aIngredientSubGroups count];
+             NSMutableArray* arrayIngredients = [[NSMutableArray alloc] initWithCapacity:nCount];
+             
+             for (int i = 0; i < nCount; i++)
+             {
+                 IngredientSubGroup* subGroup = [gData.aIngredientSubGroups objectAtIndex:i];
+                 NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:i];
+                 
+                 int nAmount = numberAmount.intValue + ( ([dictionaryOfComponents objectForKey:subGroup.szId] == nil ) ? 0 : [[dictionaryOfComponents objectForKey:subGroup.szId] intValue]  );
+                 if (nAmount == 0)
+                     continue;
+                 
+                 NSMutableDictionary* dictIngredient = [[NSMutableDictionary alloc] init];
+                 
+                 
+                 [dictIngredient setObject:subGroup.szId forKey:@"ingredient_id"];
+                 [dictIngredient setObject:[NSNumber numberWithInt:nAmount] forKey:@"amount"];
+                 
+                 [arrayIngredients addObject:dictIngredient];
+             }
+             
+             
+             NSDictionary* dictParam = @{@"eat":@{@"components":arrayIngredients}};
+             NSLog(@"%@", dictParam);
+             
+//             if (idOfLastEatToday) {
+//                 [self updateLastEat:idOfLastEatToday withIngredients:dictParam];
+//             }
+//             else
+//             {
+//                 [self eatIngredients:dictParam];
+//             }
+             
+             [_delegate didLoadTodayIngredientsSuccess];
+             
+             
+             NSTimeInterval timeInteval = [[NSDate date] timeIntervalSinceDate:start];
+             NSLog(@"Load eats time interval - %f", timeInteval);
+         }
+         else
+         {
+             [_delegate didLoadTodayIngredientsFailure:@"Error while loading Todays ingredients"];
+         }
+         
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"didEatIngredientsFailure: %@", error);
+         [_delegate didLoadTodayIngredientsFailure:@"Error while loading Todays ingredients"];
+         
+     }];
+}
+
 
 - (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
     NSCalendar* calendar = [NSCalendar currentCalendar];

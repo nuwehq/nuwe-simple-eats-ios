@@ -494,13 +494,16 @@
 		7B902F8019AF7B27001DB8C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NuWeDevApp-Uinversal/NuWeDevApp-Uinversal-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp-Uinversal/NuWeDevApp-Uinversal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = "$(CACHE_ROOT)/SharedPrecompiledHeaders";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -508,13 +511,16 @@
 		7B902F8119AF7B27001DB8C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NuWeDevApp-Uinversal/NuWeDevApp-Uinversal-Prefix.pch";
 				INFOPLIST_FILE = "NuWeDevApp-Uinversal/NuWeDevApp-Uinversal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = "$(CACHE_ROOT)/SharedPrecompiledHeaders";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,30 +1,34 @@
 //
-//  IngredientSelectViewController.m
-//  Nutribu
+//  EatsTodayViewController.m
+//  NuWe
 //
-//  Created by ChangShiYuan on 5/29/14.
-//  Copyright (c) 2014 Chang. All rights reserved.
+//  Created by Ahmed Ghalab on 9/23/14.
+//  Copyright (c) 2014 Nutribu Limited. All rights reserved.
 //
 
-// Controllers..
-#import "IngredientSelectViewController.h"
-#import "HelperIngredientSelectViewController.h"
+#import "EatsTodayViewController.h"
 
 // Model..
 #import "Data.h"
 #import "Common.h"
 
+// View..
+#import "IngredientSelectCell.h"
 
-@interface IngredientSelectViewController ()
+
+@interface EatsTodayViewController ()  <UITableViewDelegate, UITableViewDataSource>
 {
     NSInteger _nCount;
     NSInteger _nRealCount;
     NSInteger _nSubGroupStartIndex;
 }
+@property (nonatomic, weak) IBOutlet UILabel* lblTitle;
+@property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UIButton* btnBack;
 
 @end
 
-@implementation IngredientSelectViewController
+@implementation EatsTodayViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,13 +42,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
     IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:_nTopGroupIndex];
     _lblTitle.text = topGroup.szName;
     
     NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:_nTopGroupIndex];
     _nSubGroupStartIndex = [number integerValue];
-
+    
     [self.btnBack setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_back"] forState:UIControlStateNormal];
     
     _nRealCount = topGroup.nSubGroupNum;
@@ -57,34 +61,6 @@
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad && !IS_IPHONE_5)
             _tableView.frame = CGRectMake(0, 70, 320, 480 - 78);
     }
-    
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoSelectIngrediantsHelp] || ![[[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedNoSelectIngrediantsHelp] boolValue])
-    {
-        [self performSelector:@selector(showHelper) withObject:nil afterDelay:0.1];
-    }
-
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-}
-
-- (void) didRotate:(NSNotification *)notification
-{
-//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    if (orientation == UIDeviceOrientationLandscapeLeft)
-//    {
-//        NSLog(@"Landscape Left!");
-//    }
-    
-    [self.tableView reloadData];
-    [self.tableView setNeedsDisplay];
-}
-
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,9 +69,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark message handler
 
-- (IBAction)onBack
+- (IBAction)onBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -152,20 +127,15 @@
     return cell;
 }
 
-#pragma mark - helper function
 
-- (void)showHelper
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    HelperIngredientSelectViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"helperIngredientSelectController"];
-    [self addChildViewController:controller];
-    [self.view addSubview:controller.view];
-    
-    CGRect frame = self.view.bounds;
-    controller.view.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height);
-    [UIView animateWithDuration:POPUP_HELPER_DURATION animations:^{
-        controller.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-    }];
-    
+    return 1;//[gData.aIngredientTopGroups count];
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0;
+}
+
 
 @end
