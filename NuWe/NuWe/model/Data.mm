@@ -336,29 +336,36 @@
 - (int)getIngredientLevelFromAmount:(int)amount index:(int)nIndex
 {
     IngredientSubGroup* subGroup = [self.aIngredientSubGroups objectAtIndex:nIndex];
-    
-    if (amount == 0)
-        return 0;
-    else if (amount <= subGroup.nSmallDefaultPortion)
-        return 1;
-    else if (amount <= subGroup.nMediumDefaulPortion)
-        return 2;
-    else
-        return 3;
+    return [self getIngredientLevelFromAmount:amount ingredient:subGroup];
 }
 - (int)getDefaultIngrededientAmount:(int)nLevel index:(int)nIndex
 {
     IngredientSubGroup* subGroup = [self.aIngredientSubGroups objectAtIndex:nIndex];
-    
+    return [self getDefaultIngrededientAmount:nLevel ingredient:subGroup];
+}
+
+- (int)getIngredientLevelFromAmount:(int)amount ingredient:(IngredientSubGroup*)ingredient
+{
+    if (amount == 0)
+        return 0;
+    else if (amount <= ingredient.nSmallDefaultPortion)
+        return 1;
+    else if (amount <= ingredient.nMediumDefaulPortion)
+        return 2;
+    else
+        return 3;
+}
+
+- (int)getDefaultIngrededientAmount:(int)nLevel ingredient:(IngredientSubGroup*)ingredient
+{
     if (nLevel == 0)
         return 0;
     else if (nLevel == 1)
-        return subGroup.nSmallDefaultPortion;
+        return ingredient.nSmallDefaultPortion;
     else if (nLevel == 2)
-        return subGroup.nMediumDefaulPortion;
+        return ingredient.nMediumDefaulPortion;
     else
-        return subGroup.nLargeDefaulPortion;
-    
+        return ingredient.nLargeDefaulPortion;
 }
 
 @end

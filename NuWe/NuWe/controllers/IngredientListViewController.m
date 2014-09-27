@@ -275,17 +275,21 @@
 }
 
 
-- (void)didLoadTodayIngredientsSuccess
+- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSDictionary*) amountsComponents
 {
     [self hideLoadingMessage];
     NSLog(@"didLoadTodayIngredientsSuccess");
     
-    EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
-    int nTopGroupIndex = 0 ;
-    controller.nTopGroupIndex = nTopGroupIndex;
-    
-    if ([gData.aIngredientSubGroupStartIndex objectAtIndex:nTopGroupIndex] != [NSNull null])
+    if (!ingredientsCategoriezed || [ingredientsCategoriezed count] == 0 ) {
+        [self showCoverViewWithMessage:@"There is no eats done today!" withDelay:2];
+    }else
+    {
+        EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
+        controller.ingredientsCategoriezedDictionary = ingredientsCategoriezed;
+        controller.ingredientsAmountsDictionary = amountsComponents;
         [self.navigationController pushViewController:controller animated:YES];
+    }
+
     
 }
 

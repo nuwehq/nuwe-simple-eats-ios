@@ -230,6 +230,10 @@ typedef enum
 - (int)getDefaultIngrededientAmount:(int)nLevel index:(int)nIndex;
 
 
+- (int)getIngredientLevelFromAmount:(int)amount ingredient:(IngredientSubGroup*)ingredient;
+- (int)getDefaultIngrededientAmount:(int)nLevel ingredient:(IngredientSubGroup*)ingredient;
+
+
 
 @end
 

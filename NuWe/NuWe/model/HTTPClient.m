@@ -61,7 +61,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [self GET:@"ingredient_groups.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"get ingredient groups successfully : %@", responseObject);
+//         NSLog(@"get ingredient groups successfully : %@", responseObject);
          
          NSInteger nStatusCode = operation.response.statusCode;
          if (nStatusCode == 200)
@@ -329,7 +329,8 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"get Index page of eats successfully : %@", responseObject);
-         NSMutableDictionary* dictionaryOfComponents = [[NSMutableDictionary alloc] initWithCapacity:20];
+         NSMutableDictionary* dictionaryOfComponentDetails = [[NSMutableDictionary alloc] initWithCapacity:20];
+         NSMutableDictionary* dictionaryOfAmounts = [[NSMutableDictionary alloc] initWithCapacity:20];
          NSString* idOfLastEatToday = nil;
          NSDate * createdAtDate = nil;
          
@@ -359,47 +360,53 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
                          for (NSDictionary* dict in arrayOfComponents)
                          {
                              NSString* ingrediantID = [dict objectForKey: @"ingredient_id"];
+                             
                              NSNumber* amountNumber = [[NSNumber alloc]initWithInt:[[dict objectForKey: @"amount"] intValue]];
-                             [dictionaryOfComponents setObject:amountNumber forKey:ingrediantID];
+                             NSString* ingrediantName = [dict objectForKey: @"ingredient_name"];
+                             
+                             IngredientSubGroup* ingredient = [[IngredientSubGroup alloc] init];
+                             ingredient.szId = ingrediantID;
+                             ingredient.szName = ingrediantName;
+                             ingredient.nSmallDefaultPortion = [[dict objectForKey: @"small_portion"] intValue];
+                             ingredient.nMediumDefaulPortion = [[dict objectForKey: @"medium_portion"] intValue];
+                             ingredient.nLargeDefaulPortion = [[dict objectForKey: @"large_portion"] intValue];
+                             
+                             [dictionaryOfComponentDetails setObject:ingredient forKey:ingrediantID];
+                             [dictionaryOfAmounts setObject:amountNumber forKey:ingrediantID];
                          }
                      }
                  }
              }
              
-             int nCount = (int)[gData.aIngredientSubGroups count];
-             NSMutableArray* arrayIngredients = [[NSMutableArray alloc] initWithCapacity:nCount];
+
+             NSMutableDictionary* categorizedIngredients = [NSMutableDictionary dictionary];
              
-             for (int i = 0; i < nCount; i++)
-             {
-                 IngredientSubGroup* subGroup = [gData.aIngredientSubGroups objectAtIndex:i];
-                 NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:i];
-                 
-                 int nAmount = numberAmount.intValue + ( ([dictionaryOfComponents objectForKey:subGroup.szId] == nil ) ? 0 : [[dictionaryOfComponents objectForKey:subGroup.szId] intValue]  );
-                 if (nAmount == 0)
-                     continue;
-                 
-                 NSMutableDictionary* dictIngredient = [[NSMutableDictionary alloc] init];
-                 
-                 
-                 [dictIngredient setObject:subGroup.szId forKey:@"ingredient_id"];
-                 [dictIngredient setObject:[NSNumber numberWithInt:nAmount] forKey:@"amount"];
-                 
-                 [arrayIngredients addObject:dictIngredient];
+             if ([dictionaryOfAmounts count] > 0 ) {
+                 int topGroupCounts = (int)[gData.aIngredientTopGroups count];
+                 for (int i = 0 ; i < topGroupCounts ; i++) {
+                     IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:i];
+                     NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:i];
+                     int nStartIndex = (int)[number integerValue];
+                     
+                     NSMutableArray* arrayOfIngredients = [NSMutableArray array];
+                     for (int j = 0; j < topGroup.nSubGroupNum; j++)
+                     {
+                         IngredientSubGroup* subGroup = [gData.aIngredientSubGroups objectAtIndex: j+nStartIndex ];
+                         int nAmount = ( ([dictionaryOfAmounts objectForKey:subGroup.szId] == nil ) ? 0 : [[dictionaryOfAmounts objectForKey:subGroup.szId] intValue]  );
+                         
+                         if (nAmount > 0){
+                             [arrayOfIngredients addObject:[dictionaryOfComponentDetails objectForKey:subGroup.szId]];
+                         }
+                     }
+                     
+                     if ([arrayOfIngredients count] > 0 ) {
+                         [categorizedIngredients setObject:arrayOfIngredients forKey:topGroup.szName];
+                     }
+                 }
              }
+         
              
-             
-             NSDictionary* dictParam = @{@"eat":@{@"components":arrayIngredients}};
-             NSLog(@"%@", dictParam);
-             
-//             if (idOfLastEatToday) {
-//                 [self updateLastEat:idOfLastEatToday withIngredients:dictParam];
-//             }
-//             else
-//             {
-//                 [self eatIngredients:dictParam];
-//             }
-             
-             [_delegate didLoadTodayIngredientsSuccess];
+             [_delegate didLoadTodayIngredientsSuccess:categorizedIngredients withAmounts:dictionaryOfAmounts];
              
              
              NSTimeInterval timeInteval = [[NSDate date] timeIntervalSinceDate:start];

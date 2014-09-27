@@ -13,18 +13,15 @@
 #import "Common.h"
 
 // View..
-#import "IngredientSelectCell.h"
+#import "TodayIngredientSelectCell.h"
 
 
-@interface EatsTodayViewController ()  <UITableViewDelegate, UITableViewDataSource>
-{
-    NSInteger _nCount;
-    NSInteger _nRealCount;
-    NSInteger _nSubGroupStartIndex;
-}
+@interface EatsTodayViewController ()  <UITableViewDelegate, UITableViewDataSource, EatsTodayIngredientUpdateDelegate>
+
 @property (nonatomic, weak) IBOutlet UILabel* lblTitle;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property (nonatomic, weak) IBOutlet UIButton* btnBack;
+@property (nonatomic, weak) IBOutlet UIButton* btnUpdate;
 
 @end
 
@@ -43,18 +40,10 @@
 {
     [super viewDidLoad];
     
-    IngredientTopGroup* topGroup = [gData.aIngredientTopGroups objectAtIndex:_nTopGroupIndex];
-    _lblTitle.text = topGroup.szName;
-    
-    NSNumber* number = (NSNumber*)[gData.aIngredientSubGroupStartIndex objectAtIndex:_nTopGroupIndex];
-    _nSubGroupStartIndex = [number integerValue];
+
+    _lblTitle.text = @"Today's eats";
     
     [self.btnBack setImage:[UIImage imageNamed:@"NuWe.bundle/btn_nav_back"] forState:UIControlStateNormal];
-    
-    _nRealCount = topGroup.nSubGroupNum;
-    _nCount = _nRealCount + 5;
-    
-    
     
     if (IS_IOS7)
     {
@@ -77,21 +66,32 @@
 
 #pragma mark - UITableView delegate
 
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.ingredientsCategoriezedDictionary count] +1; // +1 to set a table footer
+}
+
+
+-(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return (section == [[self.ingredientsCategoriezedDictionary allKeys] count]) ? nil : [[self.ingredientsCategoriezedDictionary allKeys] objectAtIndex:section];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _nCount;
+    NSArray* sections = [self.ingredientsCategoriezedDictionary allKeys];
+    return (section == [sections count]) ? 5 : [[self.ingredientsCategoriezedDictionary objectForKey:[sections objectAtIndex:section]] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 51;
+        return 51;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger index = [indexPath row];
-    
-    if (index >= _nRealCount)
+    NSArray* sections = [self.ingredientsCategoriezedDictionary allKeys];
+    if (indexPath.section == [sections count])
     {
         static NSString *nullCellIdentifier = @"nullCellIdentifier";
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:nullCellIdentifier];
@@ -107,35 +107,36 @@
         return cell;
     }
     
-    static NSString* ingredientSelectCellIdentifier = @"ingredientSelectCellIdentifier";
-    
-    IngredientSelectCell* cell = [tableView dequeueReusableCellWithIdentifier:ingredientSelectCellIdentifier];
+    static NSString* todayIngredientSelectCellIdentifier = @"todayIngredientSelectCellIdentifier";
+    TodayIngredientSelectCell* cell = [tableView dequeueReusableCellWithIdentifier:todayIngredientSelectCellIdentifier];
     
     if (cell == nil)
     {
-        cell = [[IngredientSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ingredientSelectCellIdentifier tableview:tableView];
+        cell = [[TodayIngredientSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:todayIngredientSelectCellIdentifier tableview:tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
     }
     
-    int nSubGroupIndex = (int)(_nSubGroupStartIndex + index);
-    cell.nCellIndex = nSubGroupIndex;
-    IngredientSubGroup* subGroup = [gData.aIngredientSubGroups objectAtIndex:nSubGroupIndex];
-    cell.lblName.text = subGroup.szName;
+    NSArray* selectedSubIngredientsInCategory = [self.ingredientsCategoriezedDictionary objectForKey:[sections objectAtIndex:indexPath.section]];
+    IngredientSubGroup* subGroup = [selectedSubIngredientsInCategory objectAtIndex:indexPath.row];
     
-    NSNumber* numberAmount = (NSNumber*)[gData.aIngredientSubGroupAmount objectAtIndex:nSubGroupIndex];
-    [cell updateLevel:(int)numberAmount.integerValue update:NO];
+    NSNumber* numberAmount = (NSNumber*)[self.ingredientsAmountsDictionary objectForKey:subGroup.szId];
+    [cell updateCellWithIngredient:subGroup withAmount:numberAmount.intValue update:NO];
+    cell.clipsToBounds = YES;
     return cell;
 }
 
-
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark - EatsTodayIngredientUpdateDelegate Methods
+- (void)updateIngredientWithId:(NSString*)ingredientID withAmount:(NSNumber*) amount
 {
-    return 1;//[gData.aIngredientTopGroups count];
+    [self.ingredientsAmountsDictionary setObject:amount forKey:ingredientID];
+    [self.btnUpdate setEnabled:YES];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
+#pragma mark - IBActions Methods
+- (IBAction)updateEatsToday:(id)sender
+{
+    NSLog(@"updateEatsToday");
 }
-
 
 @end

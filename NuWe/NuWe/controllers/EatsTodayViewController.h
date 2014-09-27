@@ -10,7 +10,6 @@
 
 @interface EatsTodayViewController : SuperViewController
 
-
-@property (nonatomic, assign) NSInteger nTopGroupIndex;
-
+@property (nonatomic, strong) NSDictionary* ingredientsCategoriezedDictionary;
+@property (nonatomic, strong) NSMutableDictionary* ingredientsAmountsDictionary;
 @end

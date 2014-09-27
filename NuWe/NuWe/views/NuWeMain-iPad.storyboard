@@ -162,7 +162,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="51" sectionHeaderHeight="22" sectionFooterHeight="22" id="8KX-ZO-CMg">
                                 <rect key="frame" x="0.0" y="70" width="768" height="954"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.91947992700000003" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="KzG-2Y-XQM" id="xVS-7a-OuW"/>
                                     <outlet property="delegate" destination="KzG-2Y-XQM" id="ycl-we-Eds"/>
@@ -472,13 +471,25 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lMu-HG-KQr">
+                                        <rect key="frame" x="698" y="28" width="60" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" title="Update">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateEatsToday:" destination="KEa-Pl-hDD" eventType="touchUpInside" id="Sfb-ZU-stV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="51" sectionHeaderHeight="22" sectionFooterHeight="22" id="XGT-oP-bGF">
                                 <rect key="frame" x="0.0" y="70" width="768" height="954"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.91947992700000003" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="KEa-Pl-hDD" id="dwP-We-4Ot"/>
                                     <outlet property="delegate" destination="KEa-Pl-hDD" id="C0Y-h7-qwU"/>
@@ -489,6 +500,7 @@
                     </view>
                     <connections>
                         <outlet property="btnBack" destination="vHZ-FG-yxl" id="CAr-SZ-t12"/>
+                        <outlet property="btnUpdate" destination="lMu-HG-KQr" id="Qgl-hd-3zP"/>
                         <outlet property="lblTitle" destination="c0w-x8-qbQ" id="x4F-jw-9Qo"/>
                         <outlet property="tableView" destination="XGT-oP-bGF" id="LXA-5s-pkY"/>
                     </connections>

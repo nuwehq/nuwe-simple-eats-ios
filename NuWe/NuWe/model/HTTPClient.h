@@ -17,7 +17,7 @@
 + (HTTPClient*)sharedClient;
 
 - (void)loadIngredientGroup;
-- (void)eatIngredients;
+- (void)eatIngredients:(NSDictionary*)dictParam;
 
 - (void)eatIngredientsWithConsideringUpdatingLastEat;
 - (void)loadTodaysIngredients;
@@ -32,7 +32,7 @@
 - (void)didEatIngredientsFailure:(NSString*)szError;
 
 
-- (void)didLoadTodayIngredientsSuccess;
+- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSDictionary*) amountsComponents;
 - (void)didLoadTodayIngredientsFailure:(NSString*)szError;
 
 @end
