@@ -269,13 +269,11 @@
 - (void)didEatIngredientsFailure:(NSString *)szError
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nutribu" message:szError delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] ;
-//    [alertView show];
     [self showCoverViewWithMessage:@"Error happens while syncing meal! Please check your internet connection, try again later" withDelay:2.5];
 }
 
 
-- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSDictionary*) amountsComponents
+- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents
 {
     [self hideLoadingMessage];
     NSLog(@"didLoadTodayIngredientsSuccess");
@@ -285,6 +283,7 @@
     }else
     {
         EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
+        controller.lastTodaysEatID = @"192";
         controller.ingredientsCategoriezedDictionary = ingredientsCategoriezed;
         controller.ingredientsAmountsDictionary = amountsComponents;
         [self.navigationController pushViewController:controller animated:YES];

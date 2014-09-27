@@ -10,6 +10,7 @@
 
 @interface EatsTodayViewController : SuperViewController
 
+@property (nonatomic, strong) NSString* lastTodaysEatID;
 @property (nonatomic, strong) NSDictionary* ingredientsCategoriezedDictionary;
 @property (nonatomic, strong) NSMutableDictionary* ingredientsAmountsDictionary;
 @end

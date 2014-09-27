@@ -221,9 +221,6 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
-    
-    
-    
     [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"get Index page of eats successfully : %@", responseObject);
@@ -245,7 +242,6 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
                  NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
                  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                  [formatter setTimeZone:gmt];
-                 // 2014-09-09T12:39:22.002Z
                  formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'";
                  createdAtDate = [formatter dateFromString:[dict objectForKey: @"created_at"]];
                  
@@ -323,9 +319,6 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
-    
-    
-    
     [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"get Index page of eats successfully : %@", responseObject);
@@ -348,7 +341,6 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
                  NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
                  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                  [formatter setTimeZone:gmt];
-                 // 2014-09-09T12:39:22.002Z
                  formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'";
                  createdAtDate = [formatter dateFromString:[dict objectForKey: @"created_at"]];
                  
@@ -437,5 +429,35 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
+}
+
+-(void) updateTodaysEat:(NSString*)eatID withIngredients:(NSArray*)ingredients withAmounts:(NSDictionary*) amountsDictionary
+{
+    int nCount = (int)[ingredients count];
+    NSMutableArray* arrayIngredients = [[NSMutableArray alloc] initWithCapacity:nCount];
+    
+    for (int i = 0; i < nCount; i++)
+    {
+        IngredientSubGroup* subGroup = [ingredients objectAtIndex:i];
+        NSNumber* numberAmount = (NSNumber*)[amountsDictionary objectForKey:subGroup.szId];
+        
+        int nAmount = numberAmount.intValue;
+        if (nAmount == 0)
+            continue;
+        
+        NSMutableDictionary* dictIngredient = [[NSMutableDictionary alloc] init];
+        
+        
+        [dictIngredient setObject:subGroup.szId forKey:@"ingredient_id"];
+        [dictIngredient setObject:[NSNumber numberWithInt:nAmount] forKey:@"amount"];
+        
+        [arrayIngredients addObject:dictIngredient];
+    }
+    
+    
+    NSDictionary* dictParam = @{@"eat":@{@"components":arrayIngredients}};
+    NSLog(@"%@", dictParam);
+    
+    [self updateLastEat:eatID withIngredients:dictParam];
 }
 @end

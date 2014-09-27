@@ -136,7 +136,36 @@
 #pragma mark - IBActions Methods
 - (IBAction)updateEatsToday:(id)sender
 {
-    NSLog(@"updateEatsToday");
+    [self showLoadingMessage:@"Updating with new amounts..."];
+    [self performSelector:@selector(updateTodayIngredients) withObject:nil afterDelay:0.1];
 }
+
+- (void)updateTodayIngredients
+{
+    HTTPClient* httpClient = [HTTPClient sharedClient];
+    httpClient.delegate = self;
+    
+    NSMutableArray* ingredientsList = [NSMutableArray array];
+    for (NSArray* subListIngredients in [self.ingredientsCategoriezedDictionary allValues]) {
+        [ingredientsList addObjectsFromArray:subListIngredients];
+    }
+    
+    [httpClient updateTodaysEat:self.lastTodaysEatID withIngredients:ingredientsList withAmounts:self.ingredientsAmountsDictionary];
+}
+
+
+- (void)didEatIngredientsSuccess
+{
+    [self hideLoadingMessage];
+    [self showCoverViewWithMessage:@"today's ingredient amounts are updated successfuly" withDelay:1.5];
+    [NSTimer scheduledTimerWithTimeInterval:1.6 target:self selector:@selector(onBack:) userInfo:nil repeats:NO];
+}
+
+- (void)didEatIngredientsFailure:(NSString *)szError
+{
+    [self hideLoadingMessage];
+    [self showCoverViewWithMessage:@"Error happens while updating today's ingredient amounts! Please check your internet connection, try again later" withDelay:2.5];
+}
+
 
 @end

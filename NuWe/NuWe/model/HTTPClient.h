@@ -21,6 +21,9 @@
 
 - (void)eatIngredientsWithConsideringUpdatingLastEat;
 - (void)loadTodaysIngredients;
+
+
+-(void) updateTodaysEat:(NSString*)eatID withIngredients:(NSArray*)ingredients withAmounts:(NSDictionary*) amountsDictionary;
 @end
 
 @protocol HTTPClientDelegate <NSObject>
@@ -31,8 +34,8 @@
 - (void)didEatIngredientsSuccess;
 - (void)didEatIngredientsFailure:(NSString*)szError;
 
-
-- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSDictionary*) amountsComponents;
+- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents;
 - (void)didLoadTodayIngredientsFailure:(NSString*)szError;
+
 
 @end
