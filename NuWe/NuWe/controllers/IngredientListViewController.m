@@ -273,7 +273,7 @@
 }
 
 
-- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents
+- (void)didLoadTodayEat:(NSString*)eatID withIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents
 {
     [self hideLoadingMessage];
     NSLog(@"didLoadTodayIngredientsSuccess");
@@ -283,7 +283,7 @@
     }else
     {
         EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
-        controller.lastTodaysEatID = @"192";
+        controller.lastTodaysEatID = eatID;
         controller.ingredientsCategoriezedDictionary = ingredientsCategoriezed;
         controller.ingredientsAmountsDictionary = amountsComponents;
         [self.navigationController pushViewController:controller animated:YES];

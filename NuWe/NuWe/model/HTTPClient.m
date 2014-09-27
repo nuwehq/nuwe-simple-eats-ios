@@ -208,8 +208,36 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSLog(@"eat ingredients error: %@", error);
-         
          [_delegate didEatIngredientsFailure:@"eat ingredients failure"];
+     }];
+}
+
+
+-(void) deleteEatWithID:(NSString*)eatID
+{
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
+    
+    [self DELETE:[NSString stringWithFormat:@"eats/%@.json", eatID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"eat ingredients deleted successfully : %@", responseObject);
+         
+         NSInteger nStatusCode = operation.response.statusCode;
+         if (nStatusCode == 200)
+         {
+             [_delegate didEatIngredientsSuccess];
+         }
+         else
+         {
+             [_delegate didEatIngredientsFailure:@"Delete eat ingredients failure"];
+         }
+         
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"eat ingredients error: %@", error);
+         [_delegate didEatIngredientsFailure:@"Delete eat ingredients failure"];
          
      }];
 }
@@ -396,9 +424,8 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
                      }
                  }
              }
-         
              
-             [_delegate didLoadTodayIngredientsSuccess:categorizedIngredients withAmounts:dictionaryOfAmounts];
+             [_delegate didLoadTodayEat:idOfLastEatToday withIngredientsSuccess:categorizedIngredients withAmounts:dictionaryOfAmounts];
              
              
              NSTimeInterval timeInteval = [[NSDate date] timeIntervalSinceDate:start];
@@ -458,6 +485,12 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
     NSDictionary* dictParam = @{@"eat":@{@"components":arrayIngredients}};
     NSLog(@"%@", dictParam);
     
-    [self updateLastEat:eatID withIngredients:dictParam];
+    if ([arrayIngredients count] > 0) {
+        [self updateLastEat:eatID withIngredients:dictParam];
+    }else
+    {
+        [self deleteEatWithID:eatID];
+    }
+    
 }
 @end

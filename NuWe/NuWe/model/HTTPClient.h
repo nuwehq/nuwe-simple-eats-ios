@@ -24,6 +24,7 @@
 
 
 -(void) updateTodaysEat:(NSString*)eatID withIngredients:(NSArray*)ingredients withAmounts:(NSDictionary*) amountsDictionary;
+-(void) deleteEatWithID:(NSString*)eatID;
 @end
 
 @protocol HTTPClientDelegate <NSObject>
@@ -34,7 +35,7 @@
 - (void)didEatIngredientsSuccess;
 - (void)didEatIngredientsFailure:(NSString*)szError;
 
-- (void)didLoadTodayIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents;
+- (void)didLoadTodayEat:(NSString*)eatID withIngredientsSuccess:(NSDictionary*)ingredientsCategoriezed withAmounts:(NSMutableDictionary*) amountsComponents;
 - (void)didLoadTodayIngredientsFailure:(NSString*)szError;
 
 
