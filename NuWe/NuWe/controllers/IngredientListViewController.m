@@ -156,7 +156,7 @@
     if (indexPath.row == 0) {
         
         [imageview setImage:[UIImage imageNamed:@"NuWe.bundle/btn_round_white_pencil_32"]];
-        label.text = @"Today's eat";
+        label.text = @"Eaten Today";
         lblNumber.hidden = YES;
         lblNumber.text = @"";
         
@@ -201,7 +201,7 @@
 
     if ((int)[indexPath row] == 0) {
         
-        [self showLoadingMessage:@"Loading Today's Eats..."];
+        [self showLoadingMessage:@"Loading your Eaten items for Today"];
         [self performSelector:@selector(loadTodaysIngredients) withObject:nil afterDelay:0.1];
         
         
@@ -262,14 +262,14 @@
 - (void)didEatIngredientsSuccess
 {
     [self didLoadIngredientsSuccess];
-    [self showCoverViewWithMessage:@"Your meal is synced successfuly" withDelay:1.5];
+    [self showCoverViewWithMessage:@"Your Eaten meal has been successfully added." withDelay:1.5];
     [NSTimer scheduledTimerWithTimeInterval:1.6 target:self selector:@selector(dismissFrameworkView) userInfo:nil repeats:NO];
 }
 
 - (void)didEatIngredientsFailure:(NSString *)szError
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self showCoverViewWithMessage:@"Error happens while syncing meal! Please check your internet connection, try again later" withDelay:2.5];
+    [self showCoverViewWithMessage:@"An error occurred whilst syncing your Eat! Please check your internet connection, try again later" withDelay:2.5];
 }
 
 
@@ -279,7 +279,7 @@
     NSLog(@"didLoadTodayIngredientsSuccess");
     
     if (!ingredientsCategoriezed || [ingredientsCategoriezed count] == 0 ) {
-        [self showCoverViewWithMessage:@"There is no eats done today!" withDelay:2];
+        [self showCoverViewWithMessage:@"You've not eaten anything today. You must be hungry?" withDelay:2];
     }else
     {
         EatsTodayViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"eatsTodayController"];
@@ -295,7 +295,7 @@
 - (void)didLoadTodayIngredientsFailure:(NSString*)szError
 {
     [self hideLoadingMessage];
-    [self showCoverViewWithMessage:@"Error happens while loading Today's eats! Please check your internet connection, try again later" withDelay:2.5];
+    [self showCoverViewWithMessage:@"An error occurred whilst syncing your Eat! Please check your internet connection, try again later" withDelay:2.5];
 }
 
 - (void)loadTodaysIngredients
