@@ -3,6 +3,8 @@ nuwe-simple-eats
 
 A library for including a simple ingredient selection interface for users to track what they are eating quickly and easily with full nutritional data.
 
+![github-page-screenshots-1000](https://cloud.githubusercontent.com/assets/3216491/4875507/32b869e0-629b-11e4-930a-c795778943bc.jpg)
+
 Features
 ================
 
