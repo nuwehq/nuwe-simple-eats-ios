@@ -17,7 +17,7 @@ Simple Usage
 Download the framework and include it into your project (see our guide for building the static framework).
 We recommend including as a Git Submodule.
 
-#TODO Enable CocoaPods support
+###TODO Enable CocoaPods support
 
 Add the following pre-requisite libraries:
 
@@ -30,7 +30,7 @@ Add the following pre-requisite libraries:
 
 NOTE: We currently include a copy of the AFNetworking library in this framework, if you also use AFNetworking in your app, you will have issues with duplicate symbols. We are working to resolve this in the framework, check back for future updates.
 
-Note: You will require a Developer Account and to register a user to submit Eat events for that user. See [NuAPI Docs](https://api.nuapi.co/v1/index.html#registration)
+NOTE: You will require a Developer Account and to register a user to submit Eat events for that user. See [NuAPI Docs](https://api.nuapi.co/v1/index.html#registration)
 
 Import the Framework
 
