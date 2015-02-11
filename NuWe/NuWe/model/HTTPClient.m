@@ -157,7 +157,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 - (void)eatIngredients:(NSDictionary*)dictParam
 {
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    NSString* strToken = [NSString stringWithFormat:@"Token token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     [self POST:@"eats.json" parameters:dictParam success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -187,7 +187,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 -(void) updateLastEat:(NSString*)eatID withIngredients:(NSDictionary*)dictParam
 {
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    NSString* strToken = [NSString stringWithFormat:@"Token token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     [self PATCH:[NSString stringWithFormat:@"eats/%@.json", eatID] parameters:dictParam success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -216,7 +216,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 -(void) deleteEatWithID:(NSString*)eatID
 {
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    NSString* strToken = [NSString stringWithFormat:@"Token token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     [self DELETE:[NSString stringWithFormat:@"eats/%@.json", eatID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -246,7 +246,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 {
     
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    NSString* strToken = [NSString stringWithFormat:@"Token token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -344,7 +344,7 @@ static NSString* const ERR_SERVICE_UNAVAILABLE = @"Service is unavailable.";
 {
     
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    NSString* strToken = [NSString stringWithFormat:@"Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
+    NSString* strToken = [NSString stringWithFormat:@"Token token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:NWUserSavedAuthenticationToken]];
     [self.requestSerializer setValue:strToken forHTTPHeaderField:@"Authorization"];
     
     [self GET:@"eats.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
